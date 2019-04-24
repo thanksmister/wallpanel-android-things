@@ -1,6 +1,6 @@
 # Wall Panel Android Things
 
-An application for Android Things to display Home Automation Platform dashboards.
+An application for Android Things to display Home Automation Platform dashboard web pages.
 
 ## Getting Started
 
