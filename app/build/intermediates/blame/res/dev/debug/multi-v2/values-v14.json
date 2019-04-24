@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/build/intermediates/incremental/mergeDevDebugResources/merged.dir/values-v14/values-v14.xml",
+            "map": [
+                {
+                    "source": "/Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/res/values-v14/bools.xml",
+                    "from": {
+                        "startLines": "18",
+                        "startColumns": "4",
+                        "startOffsets": "635",
+                        "endColumns": "38",
+                        "endOffsets": "669"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "38",
+                        "endOffsets": "89"
+                    }
+                }
+            ]
+        }
+    ]
+}

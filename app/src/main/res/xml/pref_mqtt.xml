@@ -1,0 +1,87 @@
+<!--
+  ~ Copyright (c) 2019 ThanksMister LLC
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software distributed
+  ~ under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/pref_mqtt_settings_title">
+
+        <SwitchPreference
+            android:defaultValue="@string/default_setting_mqtt_enabled"
+            android:key="@string/key_setting_mqtt_enabled"
+            android:title="@string/title_setting_mqtt_enabled" />
+
+        <EditTextPreference
+            android:defaultValue="@string/default_setting_mqtt_servername"
+            android:dependency="@string/key_setting_mqtt_enabled"
+            android:key="@string/key_setting_mqtt_servername"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/title_setting_mqtt_servername" />
+
+        <EditTextPreference
+            android:defaultValue="@string/default_setting_mqtt_serverport"
+            android:dependency="@string/key_setting_mqtt_enabled"
+            android:inputType="number"
+            android:key="@string/key_setting_mqtt_serverport"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/title_setting_mqtt_serverport" />
+
+        <EditTextPreference
+            android:defaultValue="@string/default_setting_mqtt_basetopic"
+            android:dependency="@string/key_setting_mqtt_enabled"
+            android:key="@string/key_setting_mqtt_basetopic"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/title_setting_mqtt_basetopic" />
+
+        <EditTextPreference
+            android:defaultValue="@string/default_setting_mqtt_clientid"
+            android:dependency="@string/key_setting_mqtt_enabled"
+            android:key="@string/key_setting_mqtt_clientid"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/title_setting_mqtt_clientid" />
+
+        <EditTextPreference
+            android:defaultValue="@string/default_setting_mqtt_username"
+            android:dependency="@string/key_setting_mqtt_enabled"
+            android:key="@string/key_setting_mqtt_username"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/title_setting_mqtt_username" />
+
+        <EditTextPreference
+            android:defaultValue="@string/default_setting_mqtt_password"
+            android:dependency="@string/key_setting_mqtt_enabled"
+            android:key="@string/key_setting_mqtt_password"
+            android:password="true"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/title_setting_mqtt_password" />
+
+    </PreferenceCategory>
+
+  <!--  <PreferenceCategory android:title="@string/pref_mqtt_settings_category">
+
+        <SwitchPreference
+            android:key="@string/key_pref_module_tss"
+            android:summary="@string/preference_summary_tts"
+            android:title="@string/preference_tts"/>
+
+    </PreferenceCategory>-->
+
+</PreferenceScreen>

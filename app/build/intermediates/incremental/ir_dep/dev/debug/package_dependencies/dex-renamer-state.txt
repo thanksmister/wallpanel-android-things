@@ -1,0 +1,7 @@
+#Wed Apr 24 17:45:22 ART 2019
+base.0=/Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/build/intermediates/transforms/dexMerger/dev/debug/10
+path.1=classes2.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=/Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/build/intermediates/transforms/dexMerger/dev/debug/10

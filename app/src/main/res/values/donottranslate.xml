@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019 ThanksMister LLC
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License. 
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software distributed 
+  ~ under the License is distributed on an "AS IS" BASIS, 
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+  ~ See the License for the specific language governing permissions and 
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="text_f" translatable="false">°F</string>
+    <string name="text_c" translatable="false">°C</string>
+    <string name="default_setting_mqtt_sensorfrequency">60</string>
+    <string name="key_setting_android_startonboot">setting_android_startonboot</string>
+    <string name="key_setting_mqtt_password">setting_mqtt_password</string>
+    <string name="default_setting_mqtt_password">""</string>
+    <string name="key_setting_mqtt_sensorfrequency">setting_mqtt_sensorfrequency</string>
+    <string name="key_setting_mqtt_username">setting_mqtt_username</string>
+    <string name="default_setting_mqtt_username">""</string>
+    <string name="default_setting_android_startonboot">false</string>
+    <string name="key_setting_android_browsertype">setting_android_browsertype</string>
+    <string name="key_settings_sensors_light">setting_sensors_light</string>
+    <string name="key_setting_test_zoomlevel">setting_test_zoomlevel</string>
+    <string name="key_settings_sensors_magneticField">setting_sensors_magneticField</string>
+    <string name="key_settings_sensors_temperature">setting_sensors_temperature</string>
+    <string name="key_settings_sensors_pressure">setting_sensors_pressure</string>
+    <string name="key_settings_sensors_humidity">setting_sensors_humidity</string>
+    <string name="key_setting_sensors_enabled">setting_sensors_enabled</string>
+    <string name="default_setting_sensors_value">false</string>
+    <string name="key_setting_mqtt_basetopic">setting_mqtt_basetopic</string>
+    <string name="key_setting_mqtt_serverport">setting_mqtt_serverport</string>
+    <string name="default_setting_mqtt_serverport">1883</string>
+    <string name="key_setting_mqtt_servername">setting_mqtt_servername</string>
+    <string name="default_setting_mqtt_servername">192.168.1.1</string>
+    <string name="key_setting_mqtt_enabled">setting_mqtt_enabled</string>
+    <string name="key_setting_mqtt_tls_enabled">setting_mqtt_tls_enabled</string>
+    <string name="default_setting_mqtt_enabled">false</string>
+    <string name="default_setting_mqtt_tts_enabled">false</string>
+    <string name="default_setting_mqtt_basetopic">wallpanel/mywallpanel/</string>
+    <string name="key_setting_mqtt_clientid">setting_mqtt_clientid</string>
+    <string name="default_setting_mqtt_clientid">mywallpanel</string>
+    <string name="default_setting_http_mjpegmaxstreams">1</string>
+    <string name="default_setting_http_mjpegenabled">false</string>
+    <string name="key_setting_http_mjpegmaxstreams">setting_http_mjpegmaxstreams</string>
+    <string name="default_setting_http_port">2971</string>
+    <string name="key_setting_http_mjpegenabled">setting_http_mjpegenabled</string>
+    <string name="default_setting_http_restenabled">false</string>
+    <string name="key_setting_http_port">setting_http_port</string>
+    <string name="key_setting_directions">setting_directions</string>
+    <string name="default_setting_camera_qrcodeenabled">false</string>
+    <string name="key_setting_http_restenabled">setting_http_enabled</string>
+    <string name="default_setting_camera_facewake">false</string>
+    <string name="key_setting_camera_qrcodeenabled">setting_camera_qrcodeenabled</string>
+    <string name="default_setting_camera_faceenabled">false</string>
+    <string name="key_setting_camera_facewake">setting_camera_facewake</string>
+    <string name="default_setting_camera_motionontime">0</string>
+    <string name="key_setting_camera_faceenabled">setting_camera_faceenabled</string>
+    <string name="default_setting_camera_motionbright">false</string>
+    <string name="key_setting_camera_motionontime">setting_camera_motionontime</string>
+    <string name="default_setting_camera_motionwake">false</string>
+    <string name="key_setting_camera_motionbright">setting_camera_motionbright</string>
+    <string name="default_setting_camera_motionminluma">1000</string>
+    <string name="key_setting_camera_motionwake">setting_camera_motionwake</string>
+    <string name="default_setting_camera_motionleniency">20</string>
+    <string name="key_setting_camera_motionminluma">setting_camera_motionminluma</string>
+    <string name="default_setting_camera_processinginterval">500</string>
+    <string name="key_setting_camera_motionleniency">setting_camera_motionleniency</string>
+    <string name="default_setting_camera_motionenabled">false</string>
+    <string name="key_setting_camera_processinginterval">setting_camera_processinginterval</string>
+    <string name="default_setting_camera_cameraid">0</string>
+    <string name="key_setting_camera_motionenabled">setting_camera_motionenabled</string>
+    <string name="default_setting_camera_enabled">false</string>
+    <string name="key_setting_camera_cameraid">setting_camera_cameraid</string>
+    <string name="default_setting_app_showactivity">true</string>
+    <string name="key_setting_camera_enabled">setting_camera_enabled</string>
+    <string name="key_setting_app_showactivity">setting_app_showactivity</string>
+    <string name="default_setting_app_preventsleep">false</string>
+    <string name="key_setting_app_launchurl">setting_app_launchurl</string>
+    <string name="default_setting_app_launchurl">https://thanksmister.com/wallpanel-android/</string>
+    <string name="default_setting_app_deviceid">mywallpanel</string>
+    <string name="key_setting_app_preventsleep">setting_app_preventsleep</string>
+    <string name="key_settings_first_timed">setting_app_first_time</string>
+    <string name="key_setting_app_deviceid">setting_app_deviceid</string>
+    <string name="default_setting_test_zoomlevel">1.0</string>
+    <string name="key_camera_test">camera_test</string>
+
+    <string name="key_setting_tts_enabled">setting_tts_enabled</string>
+    <string name="default_setting_tss_enabled">false</string>
+
+    <string name="key_pref_module_tss">pref_module_tss</string>
+    <string name="key_pref_description">pref_description</string>
+    <string name="key_pref_module_notification">pref_module_notification</string>
+    <string name="key_pref_tts_notification">pref_module_tss</string>
+    <string name="default_tts_notification">false</string>
+
+    <string name="key_setting_browser_user_agent">setting_browser_header</string>
+    <string name="default_browser_user_agent">""</string>
+
+    <string name="key_setting_camera_fps">setting_camera_fps</string>
+    <string name="default_camera_fps">15</string>
+
+    <string name="key_setting_motion_clear">setting_motion_clear</string>
+    <string name="default_motion_clear">30</string>
+
+    <string name="key_setting_battery">setting_battery</string>
+
+    <string name="key_pref_browser_refresh">browser_refresh</string>
+    <string name="default_browser_refresh">false</string>
+
+    <string name="key_inactivity_time">inactivity_time</string>
+    <string name="default_inactivity_time">300000</string>
+
+    <string name="key_screensaver">settings_screensaver</string>
+    <string name="default_screensaver">false</string>
+
+    <string name="key_setting_screen_brightness">setting_screen_brightness</string>
+    <string name="default_setting_screen_brightness">150</string>
+
+    <string name="key_setting_screensaver_brightness">setting_screensaver_brightness</string>
+    <string name="default_setting_screensaver_brightness">15</string>
+
+    <string-array name="settings_titles">
+        <item>@string/title_settings</item>
+        <item>@string/title_camera_settings</item>
+        <item>@string/title_motion_settings</item>
+        <item>@string/title_mqtt_settings</item>
+        <item>@string/title_qrcode_settings</item>
+        <item>@string/title_http_settings</item>
+    </string-array>
+
+    <string-array name="zoom_level_names">
+        <item>"50%"</item>
+        <item>"100%"</item>
+        <item>"150%"</item>
+        <item>"200%"</item>
+    </string-array>
+
+    <string-array name="zoom_level_values">
+        <item>0.5</item>
+        <item>1.0</item>
+        <item>1.5</item>
+        <item>2.0</item>
+    </string-array>
+
+    <string-array name="flip_values">
+        <item>0F</item>
+        <item>-90f</item>
+        <item>90f</item>
+        <item>-180f</item>
+    </string-array>
+
+    <string-array name="time_zones">
+        <item id="Pacific/Majuro">Marshall Islands</item>
+        <item id="Pacific/Midway">Midway Island</item>
+        <item id="Pacific/Honolulu">Hawaii</item>
+        <item id="America/Anchorage">Alaska</item>
+        <item id="America/Los_Angeles">Pacific Time</item>
+        <item id="America/Tijuana">Tijuana</item>
+        <item id="America/Phoenix">Arizona</item>
+        <item id="America/Chihuahua">Chihuahua</item>
+        <item id="America/Denver">Mountain Time</item>
+        <item id="America/Costa_Rica">Central America</item>
+        <item id="America/Chicago">Central Time</item>
+        <item id="America/Mexico_City">Mexico City</item>
+        <item id="America/Regina">Saskatchewan</item>
+        <item id="America/Bogota">Bogota</item>
+        <item id="America/New_York">Eastern Time</item>
+        <item id="America/Caracas">Venezuela</item>
+        <item id="America/Barbados">Atlantic Time (Barbados)</item>
+        <item id="America/Halifax">Atlantic Time (Canada)</item>
+        <item id="America/Manaus">Manaus</item>
+        <item id="America/Santiago">Santiago</item>
+        <item id="America/St_Johns">Newfoundland</item>
+        <item id="America/Sao_Paulo">Brasilia</item>
+        <item id="America/Argentina/Buenos_Aires">Buenos Aires</item>
+        <item id="America/Godthab">Greenland</item>
+        <item id="America/Montevideo">Montevideo</item>
+        <item id="Atlantic/South_Georgia">Mid-Atlantic</item>
+        <item id="Atlantic/Azores">Azores</item>
+        <item id="Atlantic/Cape_Verde">Cape Verde Islands</item>
+        <item id="Africa/Casablanca">Casablanca</item>
+        <item id="Europe/London">London, Dublin</item>
+        <item id="Europe/Amsterdam">Amsterdam, Berlin</item>
+        <item id="Europe/Belgrade">Belgrade</item>
+        <item id="Europe/Brussels">Brussels</item>
+        <item id="Europe/Sarajevo">Sarajevo</item>
+        <item id="Africa/Windhoek">Windhoek</item>
+        <item id="Africa/Brazzaville">W. Africa Time</item>
+        <item id="Asia/Amman">Amman, Jordan</item>
+        <item id="Europe/Athens">Athens, Istanbul</item>
+        <item id="Asia/Beirut">Beirut, Lebanon</item>
+        <item id="Africa/Cairo">Cairo</item>
+        <item id="Europe/Helsinki">Helsinki</item>
+        <item id="Asia/Jerusalem">Jerusalem</item>
+        <item id="Europe/Minsk">Minsk</item>
+        <item id="Africa/Harare">Harare</item>
+        <item id="Asia/Baghdad">Baghdad</item>
+        <item id="Europe/Moscow">Moscow</item>
+        <item id="Asia/Kuwait">Kuwait</item>
+        <item id="Africa/Nairobi">Nairobi</item>
+        <item id="Asia/Tehran">Tehran</item>
+        <item id="Asia/Baku">Baku</item>
+        <item id="Asia/Tbilisi">Tbilisi</item>
+        <item id="Asia/Yerevan">Yerevan</item>
+        <item id="Asia/Dubai">Dubai</item>
+        <item id="Asia/Kabul">Kabul</item>
+        <item id="Asia/Karachi">Islamabad, Karachi</item>
+        <item id="Asia/Oral">Ural\'sk</item>
+        <item id="Asia/Yekaterinburg">Yekaterinburg</item>
+        <item id="Asia/Calcutta">Kolkata</item>
+        <item id="Asia/Colombo">Sri Lanka</item>
+        <item id="Asia/Katmandu">Kathmandu</item>
+        <item id="Asia/Almaty">Astana</item>
+        <item id="Asia/Rangoon">Yangon</item>
+        <item id="Asia/Krasnoyarsk">Krasnoyarsk</item>
+        <item id="Asia/Bangkok">Bangkok</item>
+        <item id="Asia/Jakarta">Jakarta</item>
+        <item id="Asia/Shanghai">Beijing</item>
+        <item id="Asia/Hong_Kong">Hong Kong</item>
+        <item id="Asia/Irkutsk">Irkutsk</item>
+        <item id="Asia/Kuala_Lumpur">Kuala Lumpur</item>
+        <item id="Australia/Perth">Perth</item>
+        <item id="Asia/Taipei">Taipei</item>
+        <item id="Asia/Seoul">Seoul</item>
+        <item id="Asia/Tokyo">Tokyo, Osaka</item>
+        <item id="Asia/Yakutsk">Yakutsk</item>
+        <item id="Australia/Adelaide">Adelaide</item>
+        <item id="Australia/Darwin">Darwin</item>
+        <item id="Australia/Brisbane">Brisbane</item>
+        <item id="Australia/Hobart">Hobart</item>
+        <item id="Australia/Sydney">Sydney, Canberra</item>
+        <item id="Asia/Vladivostok">Vladivostok</item>
+        <item id="Pacific/Guam">Guam</item>
+        <item id="Asia/Magadan">Magadan</item>
+        <item id="Pacific/Auckland">Auckland</item>
+        <item id="Pacific/Fiji">Fiji</item>
+        <item id="Pacific/Tongatapu">Tonga</item>
+    </string-array>
+
+    <string-array name="time_zones_values">
+        <item id="Pacific/Majuro">Pacific/Majuro</item>
+        <item id="Pacific/Midway">Pacific/Midway</item>
+        <item id="Pacific/Honolulu">Pacific/Honolulu</item>
+        <item id="America/Anchorage">America/Anchorage</item>
+        <item id="America/Los_Angeles">America/Los_Angeles</item>
+        <item id="America/Tijuana">America/Tijuana</item>
+        <item id="America/Phoenix">America/Phoenix</item>
+        <item id="America/Chihuahua">America/Chihuahua</item>
+        <item id="America/Denver">America/Denver</item>
+        <item id="America/Costa_Rica">America/Costa_Rica</item>
+        <item id="America/Chicago">America/Chicago</item>
+        <item id="America/Mexico_City">America/Mexico_City</item>
+        <item id="America/Regina">America/Regina</item>
+        <item id="America/Bogota">America/Bogota</item>
+        <item id="America/New_York">America/New_York</item>
+        <item id="America/Caracas">America/Caracas</item>
+        <item id="America/Barbados">America/Barbados</item>
+        <item id="America/Halifax">BaseActivity</item>
+        <item id="America/Manaus">America/Manaus</item>
+        <item id="America/Santiago">America/Santiago</item>
+        <item id="America/St_Johns">America/St_Johns</item>
+        <item id="America/Sao_Paulo">America/Sao_Paulo</item>
+        <item id="America/Argentina/Buenos_Aires">America/Argentina/Buenos_Aires</item>
+        <item id="America/Godthab">America/Godthab</item>
+        <item id="America/Montevideo">America/Montevideo</item>
+        <item id="Atlantic/South_Georgia">Atlantic/South_Georgia</item>
+        <item id="Atlantic/Azores">Atlantic/Azore</item>
+        <item id="Atlantic/Cape_Verde">Atlantic/Cape_Verde</item>
+        <item id="Africa/Casablanca">Africa/Casablanca</item>
+        <item id="Europe/London">Europe/London</item>
+        <item id="Europe/Amsterdam">Europe/Amsterdam</item>
+        <item id="Europe/Belgrade">Europe/Belgrade</item>
+        <item id="Europe/Brussels">urope/Brussels</item>
+        <item id="Europe/Sarajevo">Europe/Sarajevo</item>
+        <item id="Africa/Windhoek">Africa/Windhoek</item>
+        <item id="Africa/Brazzaville">Africa/Brazzaville</item>
+        <item id="Asia/Amman">Asia/Amman</item>
+        <item id="Europe/Athens">Europe/Athens</item>
+        <item id="Asia/Beirut">Asia/Beirut</item>
+        <item id="Africa/Cairo">Africa/Cairo</item>
+        <item id="Europe/Helsinki">Europe/Helsinki</item>
+        <item id="Asia/Jerusalem">sia/Jerusalem</item>
+        <item id="Europe/Minsk">Europe/Minsk</item>
+        <item id="Africa/Harare">Africa/Harare</item>
+        <item id="Asia/Baghdad">Asia/Baghdad</item>
+        <item id="Europe/Moscow">Europe/Moscow</item>
+        <item id="Asia/Kuwait">Asia/Kuwait</item>
+        <item id="Africa/Nairobi">Africa/Nairobi</item>
+        <item id="Asia/Tehran">Asia/Tehran</item>
+        <item id="Asia/Baku">Asia/Baku"</item>
+        <item id="Asia/Tbilisi">Asia/Tbilisi</item>
+        <item id="Asia/Yerevan">Asia/Yerevan</item>
+        <item id="Asia/Dubai">Asia/Dubai</item>
+        <item id="Asia/Kabul">Asia/Kabul</item>
+        <item id="Asia/Karachi">Asia/Karachi</item>
+        <item id="Asia/Oral">Asia/Oral</item>
+        <item id="Asia/Yekaterinburg">Asia/Yekaterinburg</item>
+        <item id="Asia/Calcutta">Asia/Calcutta</item>
+        <item id="Asia/Colombo">Asia/Colombo</item>
+        <item id="Asia/Katmandu">Asia/Katmandu</item>
+        <item id="Asia/Almaty">Asia/Almaty</item>
+        <item id="Asia/Rangoon">Asia/Rangoon</item>
+        <item id="Asia/Krasnoyarsk">Asia/Krasnoyarsk</item>
+        <item id="Asia/Bangkok">Asia/Bangkok</item>
+        <item id="Asia/Jakarta">Asia/Jakarta</item>
+        <item id="Asia/Shanghai">Asia/Shanghai</item>
+        <item id="Asia/Hong_Kong">Asia/Hong_Kong</item>
+        <item id="Asia/Irkutsk">Asia/Irkutsk</item>
+        <item id="Asia/Kuala_Lumpur">Asia/Kuala_Lumpur</item>
+        <item id="Australia/Perth">Australia/Perth</item>
+        <item id="Asia/Taipei">Asia/Taipei</item>
+        <item id="Asia/Seoul">Asia/Seoul</item>
+        <item id="Asia/Tokyo">Asia/Tokyo</item>
+        <item id="Asia/Yakutsk">Asia/Yakutsk</item>
+        <item id="Australia/Adelaide">Australia/Adelaide</item>
+        <item id="Australia/Darwin">Australia/Darwin</item>
+        <item id="Australia/Brisbane">Australia/Brisbane</item>
+        <item id="Australia/Hobart">Australia/Hobart"</item>
+        <item id="Australia/Sydney">Australia/Sydney</item>
+        <item id="Asia/Vladivostok">Asia/Vladivostok</item>
+        <item id="Pacific/Guam">Pacific/Guam</item>
+        <item id="Asia/Magadan">Asia/Magadan</item>
+        <item id="Pacific/Auckland">Pacific/Auckland</item>
+        <item id="Pacific/Fiji">Pacific/Fiji</item>
+        <item id="Pacific/Tongatapu">Pacific/Tongatapu</item>
+    </string-array>
+
+    <string-array name="screen_brightness_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+
+</resources>

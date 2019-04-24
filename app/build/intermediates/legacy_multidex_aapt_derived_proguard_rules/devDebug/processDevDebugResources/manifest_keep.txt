@@ -1,0 +1,2 @@
+# Referenced at /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/build/intermediates/merged_manifests/devDebug/AndroidManifest.xml:52
+-keep class com.thanksmister.things.wallpanel.WallPanel { <init>(); }

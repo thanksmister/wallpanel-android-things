@@ -1,0 +1,73 @@
+<!--
+  ~ Copyright (c) 2019 ThanksMister LLC
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software distributed
+  ~ under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:id="@+id/preferenceView">
+
+    <PreferenceCategory android:title="@string/pref_wifi_settings">
+
+        <Preference
+            android:key="pref_wifi_settings"
+            android:title="@string/pref_wifi_settings_title"
+            android:summary="@string/pref_wifi_settings_summary"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_display_settings">
+
+        <CheckBoxPreference
+            android:key="pref_screen_portrait"
+            android:summary="@string/pref_rotate_screen_description"
+            android:title="@string/pref_rotate_screen_title"/>
+
+        <ListPreference
+            android:key="pref_screen_brightness"
+            android:title="@string/pref_device_brightness_title"
+            android:summary="@string/pref_device_brightness_summary"
+            android:entries="@array/screen_brightness_array"
+            android:entryValues="@array/screen_brightness_array"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_time_title">
+
+        <SwitchPreference
+            android:key="pref_device_time_server"
+            android:title="@string/pref_automatic_time_zone_title"
+            android:summary="@string/pref_automatic_time_zone_summary"/>
+
+        <ListPreference
+            android:key="pref_device_time_zone"
+            android:title="Select Time Zone"
+            android:entries="@array/time_zones"
+            android:entryValues="@array/time_zones_values"/>
+
+        <SwitchPreference
+            android:key="pref_device_time_format_local"
+            android:title="@string/pref_time_format_title"
+            android:summary="1:00 PM" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_reset_category">
+
+        <Preference
+            android:key="pref_device_reset"
+            android:title="@string/pref_reset_title"
+            android:summary="@string/pref_reset_summary" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

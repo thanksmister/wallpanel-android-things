@@ -1,0 +1,436 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:18:1-114:12
+INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:18:1-114:12
+INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:18:1-114:12
+INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:18:1-114:12
+MERGED from [com.android.support:multidex:1.0.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/cbbe3f0a60be4f8d9217fa87cfd63dec/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.navigation:navigation-ui:1.0.0-alpha07] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/3175110cac426bbfdc8e385ace6490a6/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:design:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/18f17370a78e9b4bbcfde0a799dcb521/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:preference-v14:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/2157813205711b8981b2d3db0344df9c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.dagger:dagger-android-support:2.15] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/96274100e129032e02501ddce3b4a1fe/AndroidManifest.xml:17:1-22:12
+MERGED from [io.github.silvaren:easyrs:0.5.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/208efbc6771366a676a673d2aec8666f/AndroidManifest.xml:2:1-17:12
+MERGED from [com.android.support:preference-v7:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/677d520d4c61ef89e09db31548a1a159/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/c6b269fad897eafaa01f65dfc26a4485/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v13:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/78fc4b2cd8fbf7de6f9a7b0082c832d6/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/a036ee0ea5251027ac2bb31ce35f4bca/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/fb12997ea3cbf7e917cb68aac294581b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/940314623123a038a7d985053f5e6e5e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-vision:17.0.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/fba32a7971fa14ffd37bd91873c480dd/AndroidManifest.xml:2:1-9:12
+MERGED from [android.arch.navigation:navigation-fragment:1.0.0-alpha07] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/b65e58fee22fca33eeeb2873eb34fe48/AndroidManifest.xml:17:1-22:12
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/dbe24c76704cbcf31da42dbfb351312d/AndroidManifest.xml:15:1-21:12
+MERGED from [android.arch.lifecycle:extensions:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/f22feaa263c2ce8ae5f015812b99d0c6/AndroidManifest.xml:17:1-30:12
+MERGED from [android.arch.lifecycle:reactivestreams:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/50aef6c308191b47ff36ba4192a13f5d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.dagger:dagger-android:2.15] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/9414f3a0bcdb671fb7fd7655617587c6/AndroidManifest.xml:17:1-22:12
+MERGED from [com.koushikdutta.async:androidasync:2.1.9] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/0db11bc39d879eaa22efc4ea6abbcd39/AndroidManifest.xml:2:1-16:12
+MERGED from [com.jakewharton.timber:timber:4.5.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/ef7a9d35bf49311bd7cb1c31317888b2/AndroidManifest.xml:2:1-10:12
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.4] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/335991b7df323b3aa6ae6ace1fb87768/AndroidManifest.xml:2:1-19:12
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/badc6c3c136ee07f42b440fcea07f92e/AndroidManifest.xml:45:1-56:12
+MERGED from [com.crashlytics.sdk.android:answers:1.4.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/0c3074531fc97dc77d703aa93eb34f04/AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/9599a428e21b0b039270beff90d1bf72/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/028abc6a5e4be94022cc0f8b32dcf8ea/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-flags:16.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/bc73c13aea770a636eb127504195b48c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/b90933646e284a3bf5c8149729d02011/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/d2bc0cb7d02d5f5e0a70e8d360cd9802/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/5d66c4423dbf1a2db087371f64da7520/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:16.1.0] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/761749e57332444a7d62f8324ddc51a4/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/1d935fc5afd5c2dd9a642a1d8b519bab/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/27780d6ecd91783f92e09651701108e3/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.navigation:navigation-runtime:1.0.0-alpha07] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/7653824acef67cf7c862bc329d4f93ad/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/07db11c63a2c3630d96ded68eeba40b1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/68de3e24e7a1ef9423839c392858a1f0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/9e62d77c422c183acc4c22c6dcb6b7d1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/c342b8fb9825cc7c9ceddfd6e388f362/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/cd4bb923ffc6a430691aa500c7d3691f/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.navigation:navigation-common:1.0.0-alpha07] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/a03f4e7364a74af6dfce879e2fff2a99/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/39325ab7c6d56e6c725a91da60959283/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/16c2950c217be0e9960ca7ad03421e40/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/8ff1048422be51f174be2aaafd39ed1f/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/138af2af1e268283add9dd41557a6deb/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/baf3bd2f7278e4e20ff3d6deb7b3193f/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/5f6e5641e3cdf6c7600b1550ff3ef1ef/AndroidManifest.xml:17:1-22:12
+MERGED from [com.crashlytics.sdk.android:beta:1.2.9] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/6bf30a94644a8d403a38609a08550994/AndroidManifest.xml:2:1-13:12
+MERGED from [io.fabric.sdk.android:fabric:1.4.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/1ca642c1c7c3e124499077c039bb1e1b/AndroidManifest.xml:22:1-33:12
+INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:18:1-114:12
+INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:18:1-114:12
+INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:18:1-114:12
+	package
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:20:5-48
+		INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:18:1-114:12
+		INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:19:5-51
+	android:versionCode
+		INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:18:1-114:12
+		INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:18:11-69
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:23:5-80
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:23:22-78
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:24:5-75
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:24:22-73
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:25:5-76
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:25:22-73
+uses-permission#android.permission.WAKE_LOCK
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:26:5-67
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:26:22-65
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:27:5-80
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:27:22-78
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:28:5-78
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:28:22-76
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:29:5-79
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:29:22-77
+uses-permission#android.permission.INTERNET
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:30:5-66
+MERGED from [com.koushikdutta.async:androidasync:2.1.9] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/0db11bc39d879eaa22efc4ea6abbcd39/AndroidManifest.xml:11:5-67
+MERGED from [com.koushikdutta.async:androidasync:2.1.9] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/0db11bc39d879eaa22efc4ea6abbcd39/AndroidManifest.xml:11:5-67
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.4] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/335991b7df323b3aa6ae6ace1fb87768/AndroidManifest.xml:9:5-67
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.4] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/335991b7df323b3aa6ae6ace1fb87768/AndroidManifest.xml:9:5-67
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/badc6c3c136ee07f42b440fcea07f92e/AndroidManifest.xml:52:5-67
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/badc6c3c136ee07f42b440fcea07f92e/AndroidManifest.xml:52:5-67
+MERGED from [com.crashlytics.sdk.android:answers:1.4.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/0c3074531fc97dc77d703aa93eb34f04/AndroidManifest.xml:9:5-67
+MERGED from [com.crashlytics.sdk.android:answers:1.4.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/0c3074531fc97dc77d703aa93eb34f04/AndroidManifest.xml:9:5-67
+MERGED from [com.crashlytics.sdk.android:beta:1.2.9] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/6bf30a94644a8d403a38609a08550994/AndroidManifest.xml:9:5-67
+MERGED from [com.crashlytics.sdk.android:beta:1.2.9] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/6bf30a94644a8d403a38609a08550994/AndroidManifest.xml:9:5-67
+MERGED from [io.fabric.sdk.android:fabric:1.4.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/1ca642c1c7c3e124499077c039bb1e1b/AndroidManifest.xml:29:5-67
+MERGED from [io.fabric.sdk.android:fabric:1.4.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/1ca642c1c7c3e124499077c039bb1e1b/AndroidManifest.xml:29:5-67
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:30:22-64
+uses-permission#android.permission.CAMERA
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:31:5-65
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:31:22-62
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:32:5-33:47
+	tools:ignore
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:33:9-44
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:32:22-70
+uses-feature#android.hardware.camera
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:35:5-85
+	android:required
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:35:58-82
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:35:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:36:5-95
+	android:required
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:36:68-92
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:36:19-67
+uses-permission#com.google.android.things.permission.MANAGE_INPUT_DRIVERS
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:38:5-97
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:38:22-94
+uses-permission#com.google.android.things.permission.MODIFY_SCREEN_SETTINGS
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:39:5-99
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:39:22-96
+uses-permission#com.google.android.things.permission.CHANGE_TIME
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:40:5-88
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:40:22-85
+uses-permission#com.google.android.things.permission.USE_PERIPHERAL_IO
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:41:5-119
+	android:required
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:41:92-116
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:41:22-91
+uses-permission#com.google.android.things.permission.SET_TIME
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:42:5-85
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:42:22-82
+application
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:44:5-112:19
+MERGED from [io.github.silvaren:easyrs:0.5.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/208efbc6771366a676a673d2aec8666f/AndroidManifest.xml:11:5-15:19
+MERGED from [io.github.silvaren:easyrs:0.5.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/208efbc6771366a676a673d2aec8666f/AndroidManifest.xml:11:5-15:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/a036ee0ea5251027ac2bb31ce35f4bca/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/a036ee0ea5251027ac2bb31ce35f4bca/AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-vision:17.0.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/fba32a7971fa14ffd37bd91873c480dd/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision:17.0.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/fba32a7971fa14ffd37bd91873c480dd/AndroidManifest.xml:7:5-20
+MERGED from [android.arch.lifecycle:extensions:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/f22feaa263c2ce8ae5f015812b99d0c6/AndroidManifest.xml:22:5-28:19
+MERGED from [android.arch.lifecycle:extensions:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/f22feaa263c2ce8ae5f015812b99d0c6/AndroidManifest.xml:22:5-28:19
+MERGED from [com.koushikdutta.async:androidasync:2.1.9] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/0db11bc39d879eaa22efc4ea6abbcd39/AndroidManifest.xml:13:5-14:19
+MERGED from [com.koushikdutta.async:androidasync:2.1.9] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/0db11bc39d879eaa22efc4ea6abbcd39/AndroidManifest.xml:13:5-14:19
+MERGED from [com.jakewharton.timber:timber:4.5.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/ef7a9d35bf49311bd7cb1c31317888b2/AndroidManifest.xml:8:5-20
+MERGED from [com.jakewharton.timber:timber:4.5.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/ef7a9d35bf49311bd7cb1c31317888b2/AndroidManifest.xml:8:5-20
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.4] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/335991b7df323b3aa6ae6ace1fb87768/AndroidManifest.xml:11:5-17:19
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.4] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/335991b7df323b3aa6ae6ace1fb87768/AndroidManifest.xml:11:5-17:19
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/badc6c3c136ee07f42b440fcea07f92e/AndroidManifest.xml:54:5-20
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/badc6c3c136ee07f42b440fcea07f92e/AndroidManifest.xml:54:5-20
+MERGED from [com.crashlytics.sdk.android:answers:1.4.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/0c3074531fc97dc77d703aa93eb34f04/AndroidManifest.xml:11:5-20
+MERGED from [com.crashlytics.sdk.android:answers:1.4.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/0c3074531fc97dc77d703aa93eb34f04/AndroidManifest.xml:11:5-20
+MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/9599a428e21b0b039270beff90d1bf72/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/9599a428e21b0b039270beff90d1bf72/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/028abc6a5e4be94022cc0f8b32dcf8ea/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/028abc6a5e4be94022cc0f8b32dcf8ea/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/b90933646e284a3bf5c8149729d02011/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/b90933646e284a3bf5c8149729d02011/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/d2bc0cb7d02d5f5e0a70e8d360cd9802/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/d2bc0cb7d02d5f5e0a70e8d360cd9802/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/5d66c4423dbf1a2db087371f64da7520/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/5d66c4423dbf1a2db087371f64da7520/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:16.1.0] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/761749e57332444a7d62f8324ddc51a4/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:16.1.0] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/761749e57332444a7d62f8324ddc51a4/AndroidManifest.xml:22:5-26:19
+MERGED from [com.crashlytics.sdk.android:beta:1.2.9] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/6bf30a94644a8d403a38609a08550994/AndroidManifest.xml:11:5-20
+MERGED from [com.crashlytics.sdk.android:beta:1.2.9] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/6bf30a94644a8d403a38609a08550994/AndroidManifest.xml:11:5-20
+MERGED from [io.fabric.sdk.android:fabric:1.4.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/1ca642c1c7c3e124499077c039bb1e1b/AndroidManifest.xml:31:5-20
+MERGED from [io.fabric.sdk.android:fabric:1.4.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/1ca642c1c7c3e124499077c039bb1e1b/AndroidManifest.xml:31:5-20
+	android:supportsRtl
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:49:9-35
+	android:label
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:48:9-41
+	android:fullBackupContent
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:53:9-42
+	tools:ignore
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:52:9-48
+	android:largeHeap
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:46:9-33
+	android:icon
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:47:9-43
+	android:allowBackup
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:45:9-35
+	android:theme
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:50:9-40
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:51:9-67
+uses-library#com.google.android.things
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:55:9-90
+	android:required
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:55:64-88
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:55:23-63
+activity#com.thanksmister.things.wallpanel.ui.activities.WelcomeActivity
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:57:9-66:20
+	android:label
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:61:13-45
+	android:noHistory
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:60:13-37
+	android:theme
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:59:13-44
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:58:13-91
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:62:13-65:29
+action#android.intent.action.MAIN
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:63:17-69
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:63:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:64:17-77
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:64:27-74
+activity#com.thanksmister.things.wallpanel.ui.activities.AboutActivity
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:68:9-74:20
+	android:label
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:70:13-53
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:69:13-89
+intent-filter#category:name:android.intent.category.DEFAULT
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:71:13-73:29
+category#android.intent.category.DEFAULT
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:72:17-76
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:72:27-73
+activity#com.thanksmister.things.wallpanel.ui.activities.LiveCameraActivity
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:75:9-81:20
+	android:label
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:77:13-51
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:76:13-94
+activity#com.thanksmister.things.wallpanel.ui.activities.SettingsActivity
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:82:9-88:20
+	android:label
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:84:13-51
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:83:13-92
+activity#com.thanksmister.things.wallpanel.ui.activities.BrowserActivityNative
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:89:9-97:20
+	android:label
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:92:13-59
+	android:configChanges
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:91:13-74
+	android:theme
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:93:13-54
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:90:13-97
+service#org.eclipse.paho.android.service.MqttService
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:99:9-100:75
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:100:13-72
+service#com.thanksmister.things.wallpanel.network.WallPanelService
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:102:9-106:42
+	android:enabled
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:104:13-35
+	android:exported
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:105:13-37
+	android:stopWithTask
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:106:13-40
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:103:13-86
+meta-data#io.fabric.ApiKey
+ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:108:9-110:72
+	android:value
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:110:13-69
+	android:name
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml:109:13-44
+uses-sdk
+INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml
+INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:multidex:1.0.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/cbbe3f0a60be4f8d9217fa87cfd63dec/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:multidex:1.0.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/cbbe3f0a60be4f8d9217fa87cfd63dec/AndroidManifest.xml:20:5-43
+MERGED from [android.arch.navigation:navigation-ui:1.0.0-alpha07] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/3175110cac426bbfdc8e385ace6490a6/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.navigation:navigation-ui:1.0.0-alpha07] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/3175110cac426bbfdc8e385ace6490a6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/18f17370a78e9b4bbcfde0a799dcb521/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/18f17370a78e9b4bbcfde0a799dcb521/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:preference-v14:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/2157813205711b8981b2d3db0344df9c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:preference-v14:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/2157813205711b8981b2d3db0344df9c/AndroidManifest.xml:20:5-44
+MERGED from [com.google.dagger:dagger-android-support:2.15] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/96274100e129032e02501ddce3b4a1fe/AndroidManifest.xml:20:5-44
+MERGED from [com.google.dagger:dagger-android-support:2.15] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/96274100e129032e02501ddce3b4a1fe/AndroidManifest.xml:20:5-44
+MERGED from [io.github.silvaren:easyrs:0.5.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/208efbc6771366a676a673d2aec8666f/AndroidManifest.xml:7:5-9:41
+MERGED from [io.github.silvaren:easyrs:0.5.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/208efbc6771366a676a673d2aec8666f/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:preference-v7:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/677d520d4c61ef89e09db31548a1a159/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:preference-v7:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/677d520d4c61ef89e09db31548a1a159/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/c6b269fad897eafaa01f65dfc26a4485/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/c6b269fad897eafaa01f65dfc26a4485/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v13:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/78fc4b2cd8fbf7de6f9a7b0082c832d6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v13:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/78fc4b2cd8fbf7de6f9a7b0082c832d6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/a036ee0ea5251027ac2bb31ce35f4bca/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/a036ee0ea5251027ac2bb31ce35f4bca/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/fb12997ea3cbf7e917cb68aac294581b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/fb12997ea3cbf7e917cb68aac294581b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/940314623123a038a7d985053f5e6e5e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/940314623123a038a7d985053f5e6e5e/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-vision:17.0.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/fba32a7971fa14ffd37bd91873c480dd/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision:17.0.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/fba32a7971fa14ffd37bd91873c480dd/AndroidManifest.xml:5:5-44
+MERGED from [android.arch.navigation:navigation-fragment:1.0.0-alpha07] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/b65e58fee22fca33eeeb2873eb34fe48/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.navigation:navigation-fragment:1.0.0-alpha07] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/b65e58fee22fca33eeeb2873eb34fe48/AndroidManifest.xml:20:5-44
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/dbe24c76704cbcf31da42dbfb351312d/AndroidManifest.xml:19:5-43
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/dbe24c76704cbcf31da42dbfb351312d/AndroidManifest.xml:19:5-43
+MERGED from [android.arch.lifecycle:extensions:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/f22feaa263c2ce8ae5f015812b99d0c6/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:extensions:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/f22feaa263c2ce8ae5f015812b99d0c6/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:reactivestreams:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/50aef6c308191b47ff36ba4192a13f5d/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:reactivestreams:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/50aef6c308191b47ff36ba4192a13f5d/AndroidManifest.xml:20:5-44
+MERGED from [com.google.dagger:dagger-android:2.15] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/9414f3a0bcdb671fb7fd7655617587c6/AndroidManifest.xml:20:5-44
+MERGED from [com.google.dagger:dagger-android:2.15] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/9414f3a0bcdb671fb7fd7655617587c6/AndroidManifest.xml:20:5-44
+MERGED from [com.koushikdutta.async:androidasync:2.1.9] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/0db11bc39d879eaa22efc4ea6abbcd39/AndroidManifest.xml:7:5-9:41
+MERGED from [com.koushikdutta.async:androidasync:2.1.9] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/0db11bc39d879eaa22efc4ea6abbcd39/AndroidManifest.xml:7:5-9:41
+MERGED from [com.jakewharton.timber:timber:4.5.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/ef7a9d35bf49311bd7cb1c31317888b2/AndroidManifest.xml:6:5-43
+MERGED from [com.jakewharton.timber:timber:4.5.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/ef7a9d35bf49311bd7cb1c31317888b2/AndroidManifest.xml:6:5-43
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.4] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/335991b7df323b3aa6ae6ace1fb87768/AndroidManifest.xml:7:5-43
+MERGED from [com.crashlytics.sdk.android:crashlytics:2.9.4] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/335991b7df323b3aa6ae6ace1fb87768/AndroidManifest.xml:7:5-43
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/badc6c3c136ee07f42b440fcea07f92e/AndroidManifest.xml:50:5-43
+MERGED from [com.crashlytics.sdk.android:crashlytics-core:2.6.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/badc6c3c136ee07f42b440fcea07f92e/AndroidManifest.xml:50:5-43
+MERGED from [com.crashlytics.sdk.android:answers:1.4.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/0c3074531fc97dc77d703aa93eb34f04/AndroidManifest.xml:7:5-43
+MERGED from [com.crashlytics.sdk.android:answers:1.4.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/0c3074531fc97dc77d703aa93eb34f04/AndroidManifest.xml:7:5-43
+MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/9599a428e21b0b039270beff90d1bf72/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-vision-common:17.0.2] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/9599a428e21b0b039270beff90d1bf72/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/028abc6a5e4be94022cc0f8b32dcf8ea/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-clearcut:16.0.0] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/028abc6a5e4be94022cc0f8b32dcf8ea/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-flags:16.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/bc73c13aea770a636eb127504195b48c/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-flags:16.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/bc73c13aea770a636eb127504195b48c/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/b90933646e284a3bf5c8149729d02011/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-phenotype:16.0.0] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/b90933646e284a3bf5c8149729d02011/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/d2bc0cb7d02d5f5e0a70e8d360cd9802/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:16.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/d2bc0cb7d02d5f5e0a70e8d360cd9802/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/5d66c4423dbf1a2db087371f64da7520/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/5d66c4423dbf1a2db087371f64da7520/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.1.0] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/761749e57332444a7d62f8324ddc51a4/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.1.0] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/761749e57332444a7d62f8324ddc51a4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/1d935fc5afd5c2dd9a642a1d8b519bab/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/1d935fc5afd5c2dd9a642a1d8b519bab/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/27780d6ecd91783f92e09651701108e3/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/27780d6ecd91783f92e09651701108e3/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.navigation:navigation-runtime:1.0.0-alpha07] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/7653824acef67cf7c862bc329d4f93ad/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.navigation:navigation-runtime:1.0.0-alpha07] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/7653824acef67cf7c862bc329d4f93ad/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/07db11c63a2c3630d96ded68eeba40b1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/07db11c63a2c3630d96ded68eeba40b1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/68de3e24e7a1ef9423839c392858a1f0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/68de3e24e7a1ef9423839c392858a1f0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/9e62d77c422c183acc4c22c6dcb6b7d1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/9e62d77c422c183acc4c22c6dcb6b7d1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/c342b8fb9825cc7c9ceddfd6e388f362/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/c342b8fb9825cc7c9ceddfd6e388f362/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/cd4bb923ffc6a430691aa500c7d3691f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/cd4bb923ffc6a430691aa500c7d3691f/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.navigation:navigation-common:1.0.0-alpha07] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/a03f4e7364a74af6dfce879e2fff2a99/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.navigation:navigation-common:1.0.0-alpha07] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/a03f4e7364a74af6dfce879e2fff2a99/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/39325ab7c6d56e6c725a91da60959283/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/39325ab7c6d56e6c725a91da60959283/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/16c2950c217be0e9960ca7ad03421e40/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/16c2950c217be0e9960ca7ad03421e40/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/8ff1048422be51f174be2aaafd39ed1f/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/8ff1048422be51f174be2aaafd39ed1f/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/138af2af1e268283add9dd41557a6deb/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/138af2af1e268283add9dd41557a6deb/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/baf3bd2f7278e4e20ff3d6deb7b3193f/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/baf3bd2f7278e4e20ff3d6deb7b3193f/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/5f6e5641e3cdf6c7600b1550ff3ef1ef/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/5f6e5641e3cdf6c7600b1550ff3ef1ef/AndroidManifest.xml:20:5-44
+MERGED from [com.crashlytics.sdk.android:beta:1.2.9] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/6bf30a94644a8d403a38609a08550994/AndroidManifest.xml:7:5-43
+MERGED from [com.crashlytics.sdk.android:beta:1.2.9] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/6bf30a94644a8d403a38609a08550994/AndroidManifest.xml:7:5-43
+MERGED from [io.fabric.sdk.android:fabric:1.4.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/1ca642c1c7c3e124499077c039bb1e1b/AndroidManifest.xml:27:5-43
+MERGED from [io.fabric.sdk.android:fabric:1.4.3] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/1ca642c1c7c3e124499077c039bb1e1b/AndroidManifest.xml:27:5-43
+INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml
+INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml
+		ADDED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/michaelritchie/AndroidStudioProjects/wallpanel-android-things/app/src/main/AndroidManifest.xml
+provider#android.arch.lifecycle.ProcessLifecycleOwnerInitializer
+ADDED from [android.arch.lifecycle:extensions:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/f22feaa263c2ce8ae5f015812b99d0c6/AndroidManifest.xml:23:9-27:43
+	android:authorities
+		ADDED from [android.arch.lifecycle:extensions:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/f22feaa263c2ce8ae5f015812b99d0c6/AndroidManifest.xml:25:13-68
+	android:multiprocess
+		ADDED from [android.arch.lifecycle:extensions:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/f22feaa263c2ce8ae5f015812b99d0c6/AndroidManifest.xml:27:13-40
+	android:exported
+		ADDED from [android.arch.lifecycle:extensions:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/f22feaa263c2ce8ae5f015812b99d0c6/AndroidManifest.xml:26:13-37
+	android:name
+		ADDED from [android.arch.lifecycle:extensions:1.1.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/f22feaa263c2ce8ae5f015812b99d0c6/AndroidManifest.xml:24:13-83
+provider#com.crashlytics.android.CrashlyticsInitProvider
+ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.4] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/335991b7df323b3aa6ae6ace1fb87768/AndroidManifest.xml:12:9-16:39
+	android:authorities
+		ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.4] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/335991b7df323b3aa6ae6ace1fb87768/AndroidManifest.xml:14:13-75
+	android:exported
+		ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.4] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/335991b7df323b3aa6ae6ace1fb87768/AndroidManifest.xml:15:13-37
+	android:initOrder
+		ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.4] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/335991b7df323b3aa6ae6ace1fb87768/AndroidManifest.xml:16:13-36
+	android:name
+		ADDED from [com.crashlytics.sdk.android:crashlytics:2.9.4] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/335991b7df323b3aa6ae6ace1fb87768/AndroidManifest.xml:13:13-75
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:16.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/d2bc0cb7d02d5f5e0a70e8d360cd9802/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/d2bc0cb7d02d5f5e0a70e8d360cd9802/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/d2bc0cb7d02d5f5e0a70e8d360cd9802/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:16.0.1] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/d2bc0cb7d02d5f5e0a70e8d360cd9802/AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:16.1.0] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/761749e57332444a7d62f8324ddc51a4/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:16.1.0] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/761749e57332444a7d62f8324ddc51a4/AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:16.1.0] /Users/michaelritchie/.gradle/caches/transforms-2/files-2.1/761749e57332444a7d62f8324ddc51a4/AndroidManifest.xml:24:13-58

@@ -1,0 +1,91 @@
+<!--
+  ~ Copyright (c) 2019 ThanksMister LLC
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software distributed
+  ~ under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <PreferenceCategory android:title="@string/pref_motion_detection_title">
+
+        <SwitchPreference
+            android:key="@string/key_setting_camera_motionenabled"
+            android:title="@string/title_setting_camera_motionenabled"
+            android:summary="@string/pref_motion_detection_summary"/>
+
+        <SwitchPreference
+            android:defaultValue="@string/default_setting_camera_motionwake"
+            android:key="@string/key_setting_camera_motionwake"
+            android:title="@string/title_setting_camera_motionwake"
+            android:summary="@string/pref_motion_wake_summary"
+            android:dependency="@string/key_setting_camera_motionenabled"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_motion_adjustments_title">
+
+        <EditTextPreference
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:defaultValue="@string/default_motion_clear"
+            android:key="@string/key_setting_motion_clear"
+            android:title="@string/pref_motion_reset_title"
+            android:dependency="@string/key_setting_camera_motionenabled"
+            tools:summary="60"/>
+
+        <EditTextPreference
+            android:textColor="@color/light_gray"
+            android:textSize="12sp"
+            android:selectable="false"
+            android:paddingTop="0dp"
+            android:summary="@string/pref_motion_reset_description"/>
+
+        <EditTextPreference
+            android:defaultValue="@string/default_setting_camera_motionleniency"
+            android:hint="Cookies"
+            android:inputType="number"
+            android:key="@string/key_setting_camera_motionleniency"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:contentDescription="Kittens"
+            android:title="@string/title_setting_camera_motionleniency"
+            android:dependency="@string/key_setting_camera_motionenabled"/>
+
+        <EditTextPreference
+            android:textColor="@color/light_gray"
+            android:textSize="12sp"
+            android:selectable="false"
+            android:paddingTop="0dp"
+            android:summary="@string/pref_motion_leniency_description"/>
+
+        <EditTextPreference
+            android:defaultValue="@string/default_setting_camera_motionminluma"
+            android:inputType="number"
+            android:key="@string/key_setting_camera_motionminluma"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/title_setting_camera_motionminluma"
+            android:dependency="@string/key_setting_camera_motionenabled"/>
+
+        <EditTextPreference
+            android:textColor="@color/light_gray"
+            android:textSize="12sp"
+            android:selectable="false"
+            android:paddingTop="0dp"
+            android:summary="@string/pref_motion_luma_description"/>
+
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
