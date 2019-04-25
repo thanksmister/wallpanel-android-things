@@ -75,4 +75,4 @@ For the camera, I recommend the official Raspberry Pi Found dation [Camera Modul
 
 ## Enclosure
 
-Originally I 3D printed an enclosure: https://www.thingiverse.com/thing:1082431. However, I ended up you want to buying a SmartPi Touch case which is a great option especially if you have the [Camera Module v2](https://www.raspberrypi.org/products/camera-module-v2/).
+Originally I 3D printed an enclosure: https://www.thingiverse.com/thing:1082431. However, I ended up buying a SmartPi Touch case which is a great option especially if you have the [Camera Module v2](https://www.raspberrypi.org/products/camera-module-v2/).
