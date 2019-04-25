@@ -35,7 +35,7 @@ Under the Device Settings in settings, you can change the screen timeout time, s
 
 The WallPanel application can display and control components using the MQTT protocal. WallPanel and Home Assistant work together to receive sensor data, control the application Day/Night mode, and send various remote commands to the application.
 
-You can also interact and control the application and device remotely using MQTT commands, including using your device as an announcer with Google Text-To-Speach (speaker required). Each device requires a unique base topic which you set in the MQTT settings, the default is "wallpanel".  This distinguishes your device if you are running multiple devices. 
+You can also interact and control the application and device remotely using MQTT commands, including using your device as an announcer with Google Text-To-Speach (speaker required). Each device requires a unique base topic which you set in the MQTT settings, the default is "mywallpanel".  This distinguishes your device if you are running multiple devices. 
 
 ### MQTT Commands
 
