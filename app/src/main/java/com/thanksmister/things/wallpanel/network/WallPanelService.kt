@@ -49,6 +49,8 @@ import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_SENSO
 import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_SENSOR_MOTION
 import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_SPEAK
 import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_STATE
+import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_SUN
+import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_SUN_BELOW_HORIZON
 import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_URL
 import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_VOLUME
 import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_WAKE
@@ -502,6 +504,10 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
             if (commandJson.has(COMMAND_VOLUME)) {
                 setVolume((commandJson.getInt(COMMAND_VOLUME).toFloat() / 100))
             }
+            if (commandJson.has(COMMAND_SUN)) {
+                setSun(commandJson.getString(COMMAND_SUN))
+
+            }
         } catch (ex: JSONException) {
             Timber.e("Invalid JSON passed as a command: " + commandJson.toString())
             return false
@@ -559,16 +565,19 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
     }
 
     private fun speakMessage(message: String) {
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-            if (textToSpeechModule != null) {
-                Timber.d("speakMessage $message")
-                textToSpeechModule!!.speakText(message)
-            }
+        if (textToSpeechModule != null) {
+            Timber.d("speakMessage $message")
+            textToSpeechModule!!.speakText(message)
         }
     }
 
-    private fun switchScreenOn() {
-        switchScreenOn(SCREEN_WAKE_TIME)
+    private fun setSun(value: String) {
+        if(configuration.sunValue != value) {
+            val intent = Intent(BROADCAST_SCREEN_DAY_NIGHT_MODE)
+            intent.putExtra(BROADCAST_SCREEN_DAY_NIGHT_MODE, value)
+            val bm = LocalBroadcastManager.getInstance(applicationContext)
+            bm.sendBroadcast(intent)
+        }
     }
 
     //@SuppressLint("WakelockTimeout")
@@ -680,7 +689,6 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
         bm.sendBroadcast(intent)
     }
 
-    // TODO don't change the user settings when receiving command
     private val mBroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
             if (BROADCAST_EVENT_URL_CHANGE == intent.action) {
@@ -726,5 +734,6 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
         const val BROADCAST_TOAST_MESSAGE = "BROADCAST_TOAST_MESSAGE"
         const val BROADCAST_SCREEN_WAKE = "BROADCAST_SCREEN_WAKE"
         const val BROADCAST_SCREEN_BRIGHTNESS_CHANGE = "BROADCAST_SCREEN_BRIGHTNESS_CHANGE"
+        const val BROADCAST_SCREEN_DAY_NIGHT_MODE = "BROADCAST_SCREEN_DAY_NIGHT_MODE"
     }
 }

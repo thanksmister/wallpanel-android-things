@@ -57,6 +57,9 @@ class MqttUtils {
         const val COMMAND_AUDIO = "audio"
         const val COMMAND_SPEAK = "speak"
         const val COMMAND_VOLUME = "volume"
+        const val COMMAND_SUN = "sun"
+        const val COMMAND_SUN_ABOVE_HORIZON = "above_horizon"
+        const val COMMAND_SUN_BELOW_HORIZON = "below_horizon"
 
         private val topicsList = ArrayList<String>()
 

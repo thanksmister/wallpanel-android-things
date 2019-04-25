@@ -32,6 +32,7 @@ import android.view.WindowManager
 import android.widget.EditText
 import android.widget.TextView
 import com.thanksmister.things.wallpanel.R
+import com.thanksmister.things.wallpanel.persistence.Configuration
 import com.thanksmister.things.wallpanel.ui.views.NetworkSettingsView
 import com.thanksmister.things.wallpanel.ui.views.ScreenSaverView
 import timber.log.Timber
@@ -57,7 +58,7 @@ class DialogUtils(base: Context?) : ContextWrapper(base), LifecycleObserver {
     fun hideScreenSaverDialog() {
         if (screenSaverDialog != null && screenSaverDialog!!.isShowing) {
             screenSaverDialog!!.dismiss()
-            screenSaverDialog!!.window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON )
+            screenSaverDialog!!.window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
             screenSaverDialog = null
         }
     }
@@ -143,18 +144,21 @@ class DialogUtils(base: Context?) : ContextWrapper(base), LifecycleObserver {
                 .show()
     }
 
-    fun hideProgressDialog() {
+    private fun hideProgressDialog() {
         if (progressDialog != null && progressDialog!!.isShowing) {
             progressDialog!!.dismiss()
             progressDialog = null
         }
     }
 
-        /**
+    /**
      * Show the screen saver only if the alarm isn't triggered. This shouldn't be an issue
      * with the alarm disabled because the disable time will be longer than this.
      */
-    fun showScreenSaver(activity: AppCompatActivity, onClickListener: View.OnClickListener) {
+    fun showScreenSaver(activity: AppCompatActivity,
+                        onClickListener: View.OnClickListener,
+                        configuration: Configuration,
+                        screenUtils: ScreenUtils) {
         if (screenSaverDialog != null && screenSaverDialog!!.isShowing) {
             return
         }
@@ -165,12 +169,13 @@ class DialogUtils(base: Context?) : ContextWrapper(base), LifecycleObserver {
         screenSaverView.setOnClickListener(onClickListener)
         screenSaverView.init()
         screenSaverDialog = buildImmersiveDialog(activity, true, screenSaverView, true)
-        if (screenSaverDialog != null){
-            screenSaverDialog!!.window.addFlags( WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON )
+        screenSaverDialog?.let {
+            //it.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+            screenUtils.resetScreenBrightness(true, configuration, it.window)
         }
     }
 
-    fun showNetworkSettingsDialog(context: Context, name: String?, password: String?, listener: NetworkSettingsView.ViewListener) : AlertDialog {
+    fun showNetworkSettingsDialog(context: Context, name: String?, password: String?, listener: NetworkSettingsView.ViewListener): AlertDialog {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.dialog_network_settings, null, false)
         val dialogView = view.findViewById<NetworkSettingsView>(R.id.networkSettingsView)
@@ -184,7 +189,7 @@ class DialogUtils(base: Context?) : ContextWrapper(base), LifecycleObserver {
         dialog.setPositiveButton(android.R.string.ok) { _, _ ->
             val networkName = networkNameText.text.toString()
             val networkPass = networkPassText.text.toString()
-            if(!TextUtils.isEmpty(networkName) && !TextUtils.isEmpty(networkPass)) {
+            if (!TextUtils.isEmpty(networkName) && !TextUtils.isEmpty(networkPass)) {
                 listener.onComplete(networkName, networkPass)
             } else {
                 Timber.d("Empty values")

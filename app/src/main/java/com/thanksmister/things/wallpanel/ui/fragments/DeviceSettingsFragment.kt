@@ -39,11 +39,12 @@ import android.net.ConnectivityManager
 import android.net.wifi.WifiManager
 
 import android.net.NetworkInfo
+import android.view.MenuItem
+import androidx.navigation.Navigation
 import com.thanksmister.things.wallpanel.R
 import com.thanksmister.things.wallpanel.persistence.Configuration
 import com.thanksmister.things.wallpanel.persistence.Configuration.Companion.PREF_DEVICE_SCREEN_BRIGHTNESS
 import com.thanksmister.things.wallpanel.persistence.Configuration.Companion.PREF_DEVICE_SCREEN_POTRAIT
-import com.thanksmister.things.wallpanel.persistence.Configuration.Companion.PREF_DEVICE_TIME_FORMAT
 import com.thanksmister.things.wallpanel.persistence.Configuration.Companion.PREF_DEVICE_TIME_SERVER
 import com.thanksmister.things.wallpanel.persistence.Configuration.Companion.PREF_DEVICE_TIME_ZONE
 import com.thanksmister.things.wallpanel.ui.activities.SettingsActivity
@@ -86,6 +87,16 @@ class DeviceSettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
                 this?.title = (getString(R.string.title_device_settings))
             }
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                view?.let { Navigation.findNavController(it).navigate(R.id.settings_action) }
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey : String?) {
@@ -132,7 +143,6 @@ class DeviceSettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
         portraitPreference!!.isChecked = configuration.isPortraitMode
         Timber.d("isPortraitMode ${configuration.isPortraitMode}")
 
-
         brightnessPreference = findPreference(PREF_DEVICE_SCREEN_BRIGHTNESS) as ListPreference
         brightnessPreference!!.value = configuration.screenBrightness.toString()
         brightnessPreference!!.summary = getString(R.string.pref_device_brightness_summary, configuration.screenBrightness.toString())
@@ -151,7 +161,7 @@ class DeviceSettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
         timeManager.setTimeZone(configuration.timeZone)
 
         serverPreference = findPreference(PREF_DEVICE_TIME_SERVER) as SwitchPreference
-        formatPreference = findPreference(PREF_DEVICE_TIME_FORMAT) as SwitchPreference
+        formatPreference = findPreference("key_device_time_format") as SwitchPreference
         serverPreference!!.isChecked = configuration.useTimeServer
 
         if(configuration.useTimeServer) {
@@ -171,7 +181,7 @@ class DeviceSettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnS
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
         when (key) {
-            PREF_DEVICE_TIME_FORMAT -> {
+            "key_device_time_format" -> {
                 if(formatPreference!!.isChecked) {
                     timeManager.setTimeFormat(TimeManager.FORMAT_24);
                     formatPreference!!.summary = "13:00"

@@ -19,7 +19,10 @@ package com.thanksmister.things.wallpanel.persistence
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
+import com.google.android.things.device.TimeManager
 import com.thanksmister.things.wallpanel.R
+import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_SUN_ABOVE_HORIZON
+import timber.log.Timber
 import javax.inject.Inject
 
 class Configuration @Inject
@@ -176,15 +179,21 @@ constructor(private val context: Context, private val sharedPreferences: SharedP
         get() = getBoolPref(R.string.key_screensaver, R.string.default_screensaver)
 
     var screenBrightness: Int
-        get() = sharedPreferences.getInt(context.getString(R.string.key_setting_screen_brightness), 3)
+        get() = sharedPreferences.getInt(context.getString(R.string.key_setting_screen_brightness), 5)
         set(value) {
             sharedPreferences.edit().putInt(context.getString(R.string.key_setting_screen_brightness), value).apply()
         }
 
-    var screenScreenSaverBrightness: Int
-        get() = sharedPreferences.getInt(context.getString(R.string.key_setting_screensaver_brightness), 1)
+    var sunValue: String
+        get() = sharedPreferences.getString(PREF_SUN, COMMAND_SUN_ABOVE_HORIZON)
         set(value) {
-            sharedPreferences.edit().putInt(context.getString(R.string.key_setting_screensaver_brightness), value).apply()
+            sharedPreferences.edit().putString(PREF_SUN, value).apply()
+        }
+
+    var screenNightBrightness: Int
+        get() = sharedPreferences.getInt(context.getString(R.string.key_setting_night_brightness), 3)
+        set(value) {
+            sharedPreferences.edit().putInt(context.getString(R.string.key_setting_night_brightness), value).apply()
         }
 
     fun hasCameraDetections() : Boolean {
@@ -209,8 +218,22 @@ constructor(private val context: Context, private val sharedPreferences: SharedP
     }
 
     var timeFormat: Int
-        get() = sharedPreferences.getInt(PREF_DEVICE_TIME_FORMAT, 12)
-        set(value) = sharedPreferences.edit().putInt(PREF_DEVICE_TIME_FORMAT, value).apply()
+        get() {
+            return try {
+                sharedPreferences.getInt(PREF_DEVICE_TIME_FORMAT, TimeManager.FORMAT_12)
+            } catch (e: ClassCastException) {
+                Timber.e("Value is getting set to boolean, not INT")
+                sharedPreferences.edit().putInt(PREF_DEVICE_TIME_FORMAT, TimeManager.FORMAT_12).apply()
+                sharedPreferences.getInt(PREF_DEVICE_TIME_FORMAT, TimeManager.FORMAT_12)
+            }
+        }
+        set(value: Int) {
+            if(value in TimeManager.FORMAT_12..TimeManager.FORMAT_24) {
+                sharedPreferences.edit().putInt(PREF_DEVICE_TIME_FORMAT, value).apply()
+            } else {
+                Timber.e("Value is getting set to boolean, not INT")
+            }
+        }
 
     var useTimeServer: Boolean
         get() = sharedPreferences.getBoolean(PREF_DEVICE_TIME_SERVER, true)
@@ -246,7 +269,8 @@ constructor(private val context: Context, private val sharedPreferences: SharedP
         const val PREF_NETWORK_PASSWORD = "pref_network_pass"
         const val PREF_DEVICE_SCREEN_POTRAIT = "pref_screen_portrait"
         const val PREF_DEVICE_TIME_SERVER = "pref_device_time_server"
-        const val PREF_DEVICE_TIME_FORMAT = "pref_device_time_format_local"
+        private const val PREF_SUN = "pref_sun"
+        private val PREF_DEVICE_TIME_FORMAT = "pref_device_time_format"
         const val PREF_DEVICE_TIME = "pref_device_time"
         const val PREF_DEVICE_TIME_ZONE = "pref_device_time_zone"
         const val PREF_DEVICE_SCREEN_BRIGHTNESS = "pref_screen_brightness"

@@ -35,6 +35,7 @@ import com.thanksmister.things.wallpanel.network.WallPanelService.Companion.BROA
 import com.thanksmister.things.wallpanel.network.WallPanelService.Companion.BROADCAST_CLEAR_ALERT_MESSAGE
 import com.thanksmister.things.wallpanel.network.WallPanelService.Companion.BROADCAST_EVENT_SCREEN_TOUCH
 import com.thanksmister.things.wallpanel.network.WallPanelService.Companion.BROADCAST_SCREEN_BRIGHTNESS_CHANGE
+import com.thanksmister.things.wallpanel.network.WallPanelService.Companion.BROADCAST_SCREEN_DAY_NIGHT_MODE
 import com.thanksmister.things.wallpanel.network.WallPanelService.Companion.BROADCAST_SCREEN_WAKE
 import com.thanksmister.things.wallpanel.network.WallPanelService.Companion.BROADCAST_TOAST_MESSAGE
 import com.thanksmister.things.wallpanel.persistence.Configuration
@@ -98,6 +99,10 @@ abstract class BrowserActivity : DaggerAppCompatActivity() {
             } else if (BROADCAST_SCREEN_BRIGHTNESS_CHANGE == intent.action && !isFinishing) {
                 val brightness = intent.getIntExtra(BROADCAST_SCREEN_BRIGHTNESS_CHANGE, configuration.screenBrightness)
                 screenUtils.setScreenBrightness(brightness, configuration, window)
+            } else if (BROADCAST_SCREEN_DAY_NIGHT_MODE == intent.action && !isFinishing) {
+                resetInactivityTimer()
+                configuration.sunValue = intent.getStringExtra(BROADCAST_SCREEN_DAY_NIGHT_MODE)
+                screenUtils.resetScreenBrightness(false, configuration, window)
             }
         }
     }
@@ -264,12 +269,12 @@ abstract class BrowserActivity : DaggerAppCompatActivity() {
                             dialogUtils.hideScreenSaverDialog()
                             resetScreenBrightness(false)
                             resetInactivityTimer()
-                        })
+                        }, configuration, screenUtils)
             } catch (e: Exception) {
                 Timber.e(e.message)
             }
         }
-        resetScreenBrightness(true)
+        //resetScreenBrightness(true)
     }
 
     open fun resetScreenBrightness(screenSaver: Boolean = false) {

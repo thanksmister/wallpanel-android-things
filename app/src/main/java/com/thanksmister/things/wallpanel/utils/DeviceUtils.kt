@@ -52,12 +52,22 @@ object DeviceUtils {
     /**
      * Returns the adjusted brightness depending when its night mode
      */
-    fun getScreenBrightnessNightMode(currentBrightness: Int): Float {
+    fun getScreenBrightnessDimmed(currentBrightness: Int): Float {
         val brightness = convertScreenBrightnessToFloat(currentBrightness)
         if(brightness/2 <= 0f) {
             return .05f
         }
         return brightness/2
+    }
+
+    /**
+     * Returns the adjusted brightness for screen saver mode
+     */
+    fun getScreenBrightnessNight(currentBrightness: Int): Int {
+        if(currentBrightness - 2 <= 0f) {
+            return 1
+        }
+        return currentBrightness - 2
     }
 
     /**
