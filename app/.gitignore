@@ -1,7 +1,9 @@
+
 # IntelliJ IDEA
 .idea
 *.iml
 app.iml
+/build
 
 # Gradle
 .gradle
@@ -16,5 +18,3 @@ npm-debug.log
 
 #Fabric
 crashlytics.properties
-app-prod-release.apk
-fabric.properties
