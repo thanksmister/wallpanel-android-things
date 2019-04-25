@@ -63,13 +63,15 @@ Make sure you properly setup the RPi3 with the 7" Touchscreen Display.  You won'
 
 ## PIR Sensor (Optional)
 
-If you would like the alarm panel to awake when motion is detected then add a PIR sensor following the Fritzing diagram provided.
-
-![pir_rpi3_bb](https://user-images.githubusercontent.com/142340/38437807-007ba368-39af-11e8-82ae-09e10959e743.png)
+If you would like the alarm panel to awake when motion is detected then add a PIR sensor following the Fritzing diagram provided below.
 
 ## Raspberry PI Camera Module
 
 For the camera, I recommend the official Raspberry Pi Found dation [Camera Module V2](https://www.raspberrypi.org/products/camera-module-v2/).  You only need to plug it in and then turn on the camera in the settings. 
+
+## Raspberry Pi Fritzing Diagram
+
+![pir_rpi3_bb](https://user-images.githubusercontent.com/142340/38437807-007ba368-39af-11e8-82ae-09e10959e743.png)
 
 ## Enclosure
 
