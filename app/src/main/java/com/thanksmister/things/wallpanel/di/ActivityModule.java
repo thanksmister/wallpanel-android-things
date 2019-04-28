@@ -25,7 +25,6 @@ import android.location.LocationManager;
 import android.support.v7.preference.PreferenceManager;
 import android.view.LayoutInflater;
 
-import com.thanksmister.things.wallpanel.modules.CameraReader;
 import com.thanksmister.things.wallpanel.modules.SensorReader;
 import com.thanksmister.things.wallpanel.network.MQTTOptions;
 import com.thanksmister.things.wallpanel.persistence.Configuration;
@@ -68,11 +67,6 @@ class ActivityModule {
     @Provides
     static Configuration provideConfiguration(Application app, SharedPreferences sharedPreferences) {
         return new Configuration(app, sharedPreferences);
-    }
-
-    @Provides
-    static CameraReader provideCameraReader(Application app) {
-        return new CameraReader(app);
     }
 
     @Provides

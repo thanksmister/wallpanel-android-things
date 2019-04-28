@@ -29,7 +29,6 @@ import javax.inject.Inject
 import android.view.*
 
 
-
 class LiveCameraActivity : DaggerAppCompatActivity() {
 
     @Inject lateinit var configuration: Configuration

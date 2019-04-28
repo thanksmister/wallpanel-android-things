@@ -115,7 +115,7 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
         configureMqtt()
         configureMotion()
         configureCamera()
-        startHttp()
+        startMjpegStreaming()
         configureAudioPlayer()
         configureTextToSpeech()
         startSensors()
@@ -351,8 +351,8 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
         }
     }
 
-    private fun startHttp() {
-        Timber.d("startHttp")
+    private fun startMjpegStreaming() {
+        Timber.d("startMjpegStreaming")
         if (httpServer == null && configuration.httpMJPEGEnabled) {
             httpServer = AsyncHttpServer()
             httpServer!!.addAction("*", "*") { request, response ->
@@ -444,7 +444,7 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
                 val camera = commandJson.getBoolean(COMMAND_CAMERA)
                 if(camera && !configuration.httpMJPEGEnabled) {
                     configuration.setHttpMJPEGEnabled(true)
-                    startHttp()
+                    startMjpegStreaming()
                 } else if (!camera && configuration.httpMJPEGEnabled) {
                     configuration.setHttpMJPEGEnabled(false)
                     stopMJPEG()

@@ -20,38 +20,21 @@ import android.annotation.SuppressLint
 import android.arch.lifecycle.*
 import android.content.Context
 import android.content.ContextWrapper
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.ImageFormat
-import android.graphics.Matrix
+import android.graphics.*
 import android.hardware.camera2.*
 import android.media.ImageReader
 import android.os.AsyncTask
 import android.os.Handler
+import android.os.HandlerThread
+import android.support.annotation.NonNull
+import android.util.Size
 import android.view.Surface
-import android.view.SurfaceHolder
 import com.thanksmister.things.wallpanel.R
 import com.thanksmister.things.wallpanel.persistence.Configuration
 import timber.log.Timber
 import java.io.ByteArrayOutputStream
-import android.hardware.camera2.CameraAccessException
-import android.graphics.SurfaceTexture
-import android.opengl.ETC1.getHeight
-import android.opengl.ETC1.getWidth
-import android.hardware.camera2.CameraCharacteristics
-import android.hardware.camera2.params.StreamConfigurationMap
-import android.hardware.camera2.CameraManager
-
-import android.os.HandlerThread
-import android.support.annotation.NonNull
-import android.util.Size
-import android.view.SurfaceView
-import android.view.TextureView
-import android.widget.Toast
 import java.nio.ByteBuffer
-
 import java.util.*
-import kotlin.Comparator
 
 
 /**

@@ -28,11 +28,6 @@ import dagger.multibindings.IntoMap
 @Module
 internal abstract class AndroidBindingModule {
 
-    @Binds
-    @IntoMap
-    @ViewModelKey(DetectionViewModel::class)
-    abstract fun cameraViewModel(viewModel: DetectionViewModel): ViewModel
-
     @ContributesAndroidInjector
     internal abstract fun welcomeActivity(): WelcomeActivity
 
