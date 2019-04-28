@@ -20,6 +20,7 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.wifi.WifiManager
 import android.os.Build
 import android.os.Bundle
 import android.support.v14.preference.SwitchPreference
@@ -27,6 +28,7 @@ import android.support.v4.app.ActivityCompat
 import android.support.v7.preference.EditTextPreference
 import android.support.v7.preference.ListPreference
 import android.support.v7.preference.Preference
+import android.text.format.Formatter
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -46,8 +48,9 @@ class CameraSettingsFragment : BaseSettingsFragment() {
     private var cameraTestPreference: Preference? = null
     private var cameraPreference: SwitchPreference? = null
     private var fpsPreference: EditTextPreference? = null
-    private var cameraStreaming: Preference? = null
     private var rotatePreference: ListPreference? = null
+    private var httpMjpegPreference: SwitchPreference? = null
+    private var httpMjpegStreamsPreference: EditTextPreference? = null
 
     override fun onAttach(context: Context) {
         AndroidSupportInjection.inject(this)
@@ -89,6 +92,18 @@ class CameraSettingsFragment : BaseSettingsFragment() {
         fpsPreference = findPreference(getString(R.string.key_setting_camera_fps)) as EditTextPreference
         cameraPreference = findPreference(getString(R.string.key_setting_camera_enabled)) as SwitchPreference
 
+        httpMjpegPreference = findPreference(getString(R.string.key_setting_http_mjpegenabled)) as SwitchPreference
+        httpMjpegStreamsPreference = findPreference(getString(R.string.key_setting_http_mjpegmaxstreams)) as EditTextPreference
+
+        bindPreferenceSummaryToValue(httpMjpegPreference!!)
+        bindPreferenceSummaryToValue(httpMjpegStreamsPreference!!)
+
+        val wm = activity!!.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+        val ip = Formatter.formatIpAddress(wm.connectionInfo.ipAddress)
+
+        val description = findPreference(getString(R.string.key_setting_directions)) as Preference
+        description.summary = getString(R.string.pref_mjpeg_streaming_description, ip )
+
         rotatePreference = findPreference(Configuration.PREF_CAMERA_ROTATE) as ListPreference
         rotatePreference!!.setDefaultValue(configuration.cameraRotate)
         rotatePreference!!.value = configuration.cameraRotate.toString()
@@ -117,12 +132,6 @@ class CameraSettingsFragment : BaseSettingsFragment() {
         cameraTestPreference = findPreference("button_key_camera_test")
         cameraTestPreference?.onPreferenceClickListener = Preference.OnPreferenceClickListener { preference ->
             startCameraTest(preference.context)
-            false
-        }
-
-        cameraStreaming = findPreference("button_key_camera_streaming")
-        cameraStreaming?.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            view.let { Navigation.findNavController(it).navigate(R.id.action_camera_fragment_to_http_fragment) }
             false
         }
     }

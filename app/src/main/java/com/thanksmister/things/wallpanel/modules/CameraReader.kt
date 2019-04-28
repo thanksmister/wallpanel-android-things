@@ -23,6 +23,8 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Matrix
 import android.hardware.Camera
+import android.hardware.camera2.CameraAccessException
+import android.hardware.camera2.CameraManager
 import android.os.AsyncTask
 import android.support.v8.renderscript.RenderScript
 import android.view.Surface
@@ -37,10 +39,11 @@ import timber.log.Timber
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 import java.lang.ref.WeakReference
+import java.util.ArrayList
 import javax.inject.Inject
 
 class CameraReader @Inject
-constructor(private val context: Context) {
+constructor(private val context: Context)  {
 
     private val renderScript: RenderScript = RenderScript.create(context)
     private var cameraCallback: CameraCallback? = null
@@ -95,158 +98,84 @@ constructor(private val context: Context) {
     @SuppressLint("MissingPermission")
     fun startCamera(callback: CameraCallback, configuration: Configuration) {
         Timber.d("startCamera")
+        configuration.cameraId = getCameraId().toInt()
+        Timber.d("startCamera id ${configuration.cameraId}")
         this.cameraCallback = callback
         if (configuration.cameraEnabled) {
             buildDetectors(configuration)
             if(multiDetector != null) {
                 try {
-                    cameraSource = initCamera(configuration.cameraId, configuration.cameraFPS)
-                    cameraSource!!.start()
+                    cameraSource = initCamera(configuration.cameraId , configuration.cameraFPS)
+                    cameraSource?.start()
                 } catch (e : Exception) {
-                    Timber.e(e.message)
-                    try {
-                        if(configuration.cameraId == CAMERA_FACING_FRONT) {
-                            cameraSource = initCamera(CAMERA_FACING_BACK, configuration.cameraFPS)
-                            cameraSource!!.start()
-                        } else {
-                            cameraSource = initCamera(CAMERA_FACING_FRONT, configuration.cameraFPS)
-                            cameraSource!!.start()
-                        }
-                    } catch (e : Exception) {
-                        Timber.e(e.message)
-                        cameraSource!!.stop()
-                        cameraCallback?.onCameraError()
-                    }
+                    Timber.e("startCamera " + e.message)
+                    cameraSource?.stop()
+                    cameraCallback?.onCameraError()
                 }
             }
         }
     }
 
-    @SuppressLint("MissingPermission")
     @Throws(IOException::class)
-    fun startCameraPreview(callback: CameraCallback, configuration: Configuration, preview: CameraSourcePreview?) {
+    fun startCameraPreview(callback: CameraCallback, configuration: Configuration,
+                           preview: CameraSourcePreview?, cameraList: ArrayList<String>) {
         Timber.d("startCameraPreview")
         if (configuration.cameraEnabled && preview != null) {
+            configuration.cameraId = cameraList.get(0).toInt()
+            Timber.d("startCameraPreview cameraList.get(0) ${cameraList.get(0)}")
             this.cameraCallback = callback
             this.cameraPreview = preview
             buildDetectors(configuration)
             if(multiDetector != null) {
-                cameraSource = initCamera(configuration.cameraId, configuration.cameraFPS)
-                cameraPreview!!.start(cameraSource, object : CameraSourcePreview.OnCameraPreviewListener {
-                    override fun onCameraError() {
-                        Timber.e("Camera Preview Error")
-                        cameraSource = if(configuration.cameraId == CAMERA_FACING_FRONT) {
-                            initCamera(CAMERA_FACING_BACK, configuration.cameraFPS)
-                        } else {
-                            initCamera(CAMERA_FACING_FRONT, configuration.cameraFPS)
-                        }
-                        if(cameraPreview != null) {
-                            try {
-                                cameraPreview!!.start(cameraSource, object : CameraSourcePreview.OnCameraPreviewListener {
-                                    override fun onCameraError() {
-                                        Timber.e("Camera Preview Error")
-                                        cameraCallback!!.onCameraError()
-                                    }
-                                })
-                            } catch (e: Exception) {
-                                Timber.e(e.message)
-                                cameraPreview!!.stop()
-                                cameraSource!!.stop()
-                                cameraCallback!!.onCameraError()
+                try {
+                    cameraSource = initCamera(configuration.cameraId, configuration.cameraFPS)
+                    cameraPreview?.start(cameraSource, object : CameraSourcePreview.OnCameraPreviewListener {
+                        override fun onCameraError() {
+                            Timber.e("Camera Preview Error")
+                            cameraSource = if (configuration.cameraId == CAMERA_FACING_FRONT) {
+                                initCamera(CAMERA_FACING_BACK, configuration.cameraFPS)
+                            } else {
+                                initCamera(CAMERA_FACING_FRONT, configuration.cameraFPS)
+                            }
+                            if (cameraPreview != null) {
+                                try {
+                                    cameraPreview?.start(cameraSource, object : CameraSourcePreview.OnCameraPreviewListener {
+                                        override fun onCameraError() {
+                                            Timber.e("Camera Preview Error")
+                                            cameraCallback?.onCameraError()
+                                        }
+                                    })
+                                } catch (e: Exception) {
+                                    Timber.e("startCameraPreview " + e.message)
+                                    cameraPreview!!.stop()
+                                    cameraSource!!.stop()
+                                    cameraCallback!!.onCameraError()
+                                }
                             }
                         }
-                    }
-                })
-            }
-        }
-    }
-
-    @SuppressLint("MissingPermission")
-    @Throws(IOException::class)
-    fun startCameraPreviewSolo(callback: CameraCallback, configuration: Configuration, preview: CameraSourcePreview?) {
-        Timber.d("startCameraPreviewSolo")
-        if (configuration.cameraEnabled && preview != null) {
-            this.cameraCallback = callback
-            this.cameraPreview = preview
-            buildCameraDetector(configuration)
-            if(multiDetector != null) {
-                cameraSource = initCamera(configuration.cameraId, configuration.cameraFPS)
-                cameraPreview!!.start(cameraSource, object : CameraSourcePreview.OnCameraPreviewListener {
-                    override fun onCameraError() {
-                        Timber.e("Camera Preview Error")
-                        cameraSource = if(configuration.cameraId == CAMERA_FACING_FRONT) {
-                            initCamera(CAMERA_FACING_BACK, configuration.cameraFPS)
-                        } else {
-                            initCamera(CAMERA_FACING_FRONT, configuration.cameraFPS)
-                        }
-                        if(cameraPreview != null) {
-                            try {
-                                cameraPreview!!.start(cameraSource, object : CameraSourcePreview.OnCameraPreviewListener {
-                                    override fun onCameraError() {
-                                        Timber.e("Camera Preview Error")
-                                        cameraCallback!!.onCameraError()
-                                    }
-                                })
-                            } catch (e: Exception) {
-                                Timber.e(e.message)
-                                cameraPreview!!.stop()
-                                cameraSource!!.stop()
-                                cameraCallback!!.onCameraError()
-                            }
-                        }
-                    }
-                })
-            }
-        }
-    }
-
-    private fun buildCameraDetector(configuration: Configuration) {
-        val info = Camera.CameraInfo()
-        try{
-            Camera.getCameraInfo(configuration.cameraId, info)
-        } catch (e: RuntimeException) {
-            Timber.e(e.message)
-            cameraCallback!!.onCameraError()
-            return
-        }
-        cameraOrientation = info.orientation
-        val multiDetectorBuilder = MultiDetector.Builder()
-        var detectorAdded = false
-        if(configuration.cameraEnabled) {
-            streamDetector = StreamingDetector.Builder().build()
-            streamDetectorProcessor = MultiProcessor.Builder<Stream>(MultiProcessor.Factory<Stream> {
-                object : Tracker<Stream>() {
-                    override fun onUpdate(p0: Detector.Detections<Stream>?, stream: Stream?) {
-                        super.onUpdate(p0, stream)
-                    }
+                    })
+                } catch (e : Exception) {
+                    Timber.e("startCameraPreview " + e.message)
+                    cameraSource?.stop()
+                    cameraCallback?.onCameraError()
                 }
-            }).build()
-
-            streamDetector!!.setProcessor(streamDetectorProcessor)
-            multiDetectorBuilder.add(streamDetector)
-            detectorAdded = true
-        }
-
-        if(detectorAdded) {
-            multiDetector = multiDetectorBuilder.build()
+            }
         }
     }
 
     private fun buildDetectors(configuration: Configuration) {
-
         val info = Camera.CameraInfo()
         try{
+            Timber.e("buildDetectors " + configuration.cameraId)
             Camera.getCameraInfo(configuration.cameraId, info)
         } catch (e: RuntimeException) {
-            Timber.e(e.message)
+            Timber.e("buildDetectors " + e.message)
             cameraCallback!!.onCameraError()
             return
         }
-
         cameraOrientation = info.orientation
         val multiDetectorBuilder = MultiDetector.Builder()
         var detectorAdded = false
-
         if(configuration.cameraEnabled && configuration.httpMJPEGEnabled) {
             streamDetector = StreamingDetector.Builder().build()
             streamDetectorProcessor = MultiProcessor.Builder<Stream>(MultiProcessor.Factory<Stream> {
@@ -266,7 +195,6 @@ constructor(private val context: Context) {
                     }
                 }
             }).build()
-
             streamDetector!!.setProcessor(streamDetectorProcessor)
             multiDetectorBuilder.add(streamDetector)
             detectorAdded = true
@@ -283,6 +211,7 @@ constructor(private val context: Context) {
     
     @SuppressLint("MissingPermission")
     private fun initCamera(camerId: Int, fsp: Float): CameraSource {
+        Timber.d("initCamera")
         Timber.d("initCamera camerId $camerId")
         Timber.d("initCamera fps $fsp")
         return CameraSource.Builder(context, multiDetector)
@@ -291,6 +220,23 @@ constructor(private val context: Context) {
                 .setRequestedPreviewSize(640, 480)
                 .setFacing(camerId)
                 .build()
+    }
+
+    private fun getCameraId(): String {
+        val manager = context.getSystemService(Context.CAMERA_SERVICE) as CameraManager
+        val camIds: Array<String>
+        try {
+            camIds = manager.cameraIdList
+        } catch (e: CameraAccessException) {
+            Timber.e("Cam access exception getting ids: " + e.message)
+            return "0"
+        }
+        if (camIds.isEmpty()) {
+            Timber.e("No cameras found")
+            return "0"
+        }
+        Timber.d("Camera ID ${camIds[0]}")
+        return camIds[0]
     }
 
     interface OnCompleteListener {

@@ -16,50 +16,32 @@
 
 package com.thanksmister.things.wallpanel.ui.activities
 
-import android.Manifest
-import android.arch.lifecycle.ViewModelProvider
-import android.arch.lifecycle.ViewModelProviders
-import android.content.pm.PackageManager
+import android.graphics.SurfaceTexture
 import android.os.Bundle
-import android.os.Handler
-import android.support.v4.app.ActivityCompat
-import android.view.Gravity
-import android.view.MenuItem
-import android.view.WindowManager
 import android.widget.Toast
 import com.thanksmister.things.wallpanel.R
-import com.thanksmister.things.wallpanel.modules.CameraCallback
+import com.thanksmister.things.wallpanel.modules.CameraModule
 import com.thanksmister.things.wallpanel.persistence.Configuration
-import com.thanksmister.things.wallpanel.ui.DetectionViewModel
-import com.thanksmister.things.wallpanel.ui.views.CameraSourcePreview
+import com.thanksmister.things.wallpanel.utils.ScreenUtils
 import dagger.android.support.DaggerAppCompatActivity
-import timber.log.Timber
 import javax.inject.Inject
+
+import android.view.*
+
 
 
 class LiveCameraActivity : DaggerAppCompatActivity() {
 
-    @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
-    private lateinit var viewModel: DetectionViewModel
     @Inject lateinit var configuration: Configuration
-    private var updateHandler: Handler? = null
-    private var removeTextCountdown: Int = 0
-    private val interval = 1000/15L
-    private var preview: CameraSourcePreview? = null
-    private var toastShown = false
-    private var toast: Toast? = null
 
-    private val updatePicture = object : Runnable {
-        override fun run() {
-            if (removeTextCountdown > 0) {
-                removeTextCountdown--
-                if (removeTextCountdown == 0) {
-                    toast!!.cancel()
-                    toastShown = false
-                }
-            }
-            updateHandler!!.postDelayed(this, interval)
-        }
+    private var cameraModule: CameraModule? = null
+
+    private val textureView: TextureView by lazy {
+        findViewById<TextureView>(R.id.textureView)
+    }
+
+    private val screenUtils by lazy {
+        ScreenUtils(this@LiveCameraActivity)
     }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,16 +57,45 @@ class LiveCameraActivity : DaggerAppCompatActivity() {
         }
 
         window.setFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED, WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED)
-        preview = findViewById<CameraSourcePreview>(R.id.imageView_preview)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(DetectionViewModel::class.java)
 
-        // Check for the camera permission before accessing the camera.
-        val rc = ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-        if (rc == PackageManager.PERMISSION_GRANTED) {
-            viewModel.startCameraPreview(cameraCallback, preview!!)
-        } else {
-            requestCameraPermission()
+        screenUtils.resetScreenBrightness(false, configuration, window)
+
+        cameraModule = CameraModule(
+                this@LiveCameraActivity,
+                configuration = configuration,
+                callback = object: CameraModule.CallbackListener {
+                    override fun onCameraReady() {
+                        // camera ready for use
+                        setupSurfaceListener()
+                    }
+                    override fun onCameraException(message: String) {
+                        Toast.makeText(this@LiveCameraActivity,getString(R.string.toast_camera_source_error), Toast.LENGTH_LONG).show()
+                    }
+                })
+
+        cameraModule?.let {
+            lifecycle.addObserver(it)
         }
+    }
+
+    private fun setupSurfaceListener() {
+        textureView.surfaceTextureListener = object :TextureView.SurfaceTextureListener {
+            override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture?, width: Int, height: Int) {
+                // Transform you image captured size according to the surface width and height
+            }
+            override fun onSurfaceTextureUpdated(surface: SurfaceTexture?) {
+            }
+            override fun onSurfaceTextureDestroyed(surface: SurfaceTexture?): Boolean {
+                return false
+            }
+            override fun onSurfaceTextureAvailable(surface: SurfaceTexture?, width: Int, height: Int) {
+                //open your camera here
+                val surfaceTexture = textureView.surfaceTexture
+                surfaceTexture.setDefaultBufferSize(textureView.getWidth(), textureView.getHeight())
+                cameraModule?.startCameraPreview(surfaceTexture)
+            }
+        }
+        textureView.rotation = configuration.cameraRotate
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -94,83 +105,5 @@ class LiveCameraActivity : DaggerAppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        if(toast != null) {
-            toast!!.cancel()
-        }
-    }
-
-    public override fun onStart() {
-        super.onStart()
-        startUpdatePicture()
-    }
-
-    public override fun onStop() {
-        super.onStop()
-        if(toast != null) {
-            toast!!.cancel()
-        }
-        stopUpdatePicture()
-    }
-
-    public override fun onResume() {
-        super.onResume()
-    }
-
-    public override fun onDestroy() {
-        super.onDestroy()
-        if (toast != null) {
-            toast!!.cancel()
-        }
-    }
-
-    private fun requestCameraPermission() {
-        val permissions = arrayOf(Manifest.permission.CAMERA)
-        if (!ActivityCompat.shouldShowRequestPermissionRationale(this,
-                        Manifest.permission.CAMERA)) {
-            ActivityCompat.requestPermissions(this, permissions, PERMISSIONS_REQUEST_CAMERA)
-            return
-        }
-        ActivityCompat.requestPermissions(this@LiveCameraActivity, permissions, PERMISSIONS_REQUEST_CAMERA)
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
-        if (requestCode != PERMISSIONS_REQUEST_CAMERA) {
-            super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-            return
-        }
-        if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            viewModel.startCameraPreview(cameraCallback, preview!!)
-            return
-        }
-        Toast.makeText(this, getString(R.string.toast_write_permissions_denied), Toast.LENGTH_LONG).show()
-    }
-
-    private fun startUpdatePicture() {
-        updateHandler = Handler()
-        updateHandler!!.postDelayed(updatePicture, interval.toLong())
-    }
-
-    private fun stopUpdatePicture() {
-        if (updateHandler != null) {
-            updateHandler!!.removeCallbacks(updatePicture)
-            updateHandler = null
-        }
-    }
-
-    private val cameraCallback = object : CameraCallback {
-        override fun onDetectorError() {
-            Toast.makeText(this@LiveCameraActivity,getString(R.string.toast_camera_source_error), Toast.LENGTH_LONG).show()
-        }
-        override fun onCameraError() {
-            Toast.makeText(this@LiveCameraActivity, getString(R.string.toast_camera_source_error), Toast.LENGTH_LONG).show()
-        }
-    }
-
-    companion object {
-        const val PERMISSIONS_REQUEST_CAMERA = 201
     }
 }

@@ -34,9 +34,6 @@
               android:label="@string/title_camera_settings"
               android:name="com.thanksmister.things.wallpanel.ui.fragments.CameraSettingsFragment" >
         <action android:id="@+id/settings_action" app:destination="@id/settings_fragment"/>
-        <action
-            android:id="@+id/action_camera_fragment_to_http_fragment"
-            app:destination="@id/http_fragment"/>
     </fragment>
 
     <fragment android:id="@+id/sensors_fragment"
@@ -48,12 +45,6 @@
     <fragment android:id="@+id/mqtt_fragment"
         android:label="@string/title_mqtt_settings"
         android:name="com.thanksmister.things.wallpanel.ui.fragments.MqttSettingsFragment" >
-        <action android:id="@+id/settings_action" app:destination="@id/settings_fragment"/>
-    </fragment>
-
-    <fragment android:id="@+id/http_fragment"
-        android:label="@string/title_http_settings"
-        android:name="com.thanksmister.things.wallpanel.ui.fragments.HttpSettingsFragment" >
         <action android:id="@+id/settings_action" app:destination="@id/settings_fragment"/>
     </fragment>
 

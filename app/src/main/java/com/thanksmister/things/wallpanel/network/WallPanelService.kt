@@ -26,6 +26,7 @@ import android.media.MediaPlayer
 import android.os.*
 import android.provider.Settings
 import android.support.v4.content.LocalBroadcastManager
+import android.widget.Toast
 import com.koushikdutta.async.AsyncServer
 import com.koushikdutta.async.ByteBufferList
 import com.koushikdutta.async.http.server.AsyncHttpServer
@@ -50,14 +51,12 @@ import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_SENSO
 import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_SPEAK
 import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_STATE
 import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_SUN
-import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_SUN_BELOW_HORIZON
 import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_URL
 import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_VOLUME
 import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_WAKE
 import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_WAKETIME
 import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.VALUE
 import com.thanksmister.things.wallpanel.utils.NotificationUtils
-import com.thanksmister.things.wallpanel.utils.ScreenUtils
 import dagger.android.AndroidInjection
 import org.json.JSONException
 import org.json.JSONObject
@@ -73,22 +72,14 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
     @Inject
     lateinit var configuration: Configuration
     @Inject
-    lateinit var cameraReader: CameraReader
-    @Inject
     lateinit var sensorReader: SensorReader
     @Inject
     lateinit var mqttOptions: MQTTOptions
 
-    private val screenUtils by lazy {
-        ScreenUtils(this@WallPanelService)
-    }
-
     private val mJpegSockets = ArrayList<AsyncHttpServerResponse>()
-
+    private var cameraModule: CameraModule? = null
     private var audioPlayer: MediaPlayer? = null
     private var audioPlayerBusy: Boolean = false
-    private val brightTimer = Handler()
-    private var timerActive = false
     private var httpServer: AsyncHttpServer? = null
     private val mBinder = WallPanelServiceBinder()
     private val motionClearHandler = Handler()
@@ -105,7 +96,6 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
     private var localBroadCastManager: LocalBroadcastManager? = null
     private var mqttAlertMessageShown = false
     private var mqttConnected = false
-
 
     inner class WallPanelServiceBinder : Binder() {
         val service: WallPanelService
@@ -149,7 +139,6 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
         if (localBroadCastManager != null) {
             localBroadCastManager?.unregisterReceiver(mBroadcastReceiver)
         }
-        cameraReader.stopCamera()
         sensorReader.stopReadings()
         stopHttp()
         reconnectHandler.removeCallbacks(restartMqttRunnable)
@@ -172,7 +161,7 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
     private val isScreenOn: Boolean
         get() {
             val powerManager = getSystemService(Context.POWER_SERVICE) as PowerManager
-            return Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT_WATCH && powerManager.isInteractive || Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT_WATCH && powerManager.isScreenOn
+            return powerManager.isInteractive || powerManager.isScreenOn
         }
 
     private val screenBrightness: Int
@@ -198,17 +187,8 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
             return state
         }
 
-    /**
-     * Dim screen, most devices won't go below 5
-     */
-    private val dimScreen = Runnable {
-        changeScreenBrightness(configuration.screenBrightness)
-        timerActive = false
-    }
-
     private fun startForeground() {
         Timber.d("startForeground")
-
         // make a continuously running notification
         val notificationUtils = NotificationUtils(applicationContext, application.resources)
         val notification = notificationUtils.createNotification(getString(R.string.wallpanel_service_notification_title),
@@ -280,7 +260,7 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
     override fun onMQTTDisconnect() {
         Timber.e("onMQTTDisconnect")
         if (hasNetwork()) {
-            if (!mqttAlertMessageShown && !mqttConnected && Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+            if (!mqttAlertMessageShown && !mqttConnected) {
                 mqttAlertMessageShown = true
                 sendAlertMessage(getString(R.string.error_mqtt_connection))
                 reconnectHandler.postDelayed(restartMqttRunnable, 180000)
@@ -291,7 +271,7 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
     override fun onMQTTException(message: String) {
         Timber.e("onMQTTException: $message")
         if (hasNetwork()) {
-            if (!mqttAlertMessageShown && !mqttConnected && Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+            if (!mqttAlertMessageShown && !mqttConnected) {
                 mqttAlertMessageShown = true
                 sendAlertMessage(getString(R.string.error_mqtt_exception))
                 reconnectHandler.postDelayed(restartMqttRunnable, 180000)
@@ -315,9 +295,7 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
     }
 
     private fun publishMessage(command: String, message: String) {
-        if (mqttModule != null) {
-            mqttModule!!.publish(command, message)
-        }
+        mqttModule?.publish(command, message)
     }
 
     private fun configureMotion() {
@@ -329,14 +307,23 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
 
     private fun configureCamera() {
         if (configuration.cameraEnabled) {
-            cameraReader.startCamera(cameraDetectorCallback, configuration)
-        } else {
-            cameraReader.stopCamera()
+            cameraModule = CameraModule(this@WallPanelService,
+                    configuration = configuration,
+                    callback = object : CameraModule.CallbackListener{
+                        override fun onCameraReady() {
+                            cameraModule?.startCamera()
+                        }
+                        override fun onCameraException(message: String) {
+                            Timber.e(message)
+                            Toast.makeText(this@WallPanelService,getString(R.string.toast_camera_source_error), Toast.LENGTH_LONG).show()
+                        }
+                    })
+            lifecycle.addObserver(cameraModule!!)
         }
     }
 
     private fun configureTextToSpeech() {
-        if (textToSpeechModule == null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (textToSpeechModule == null) {
             textToSpeechModule = TextToSpeechModule(this)
             lifecycle.addObserver(textToSpeechModule!!)
         }
@@ -365,8 +352,8 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
     }
 
     private fun startHttp() {
-        if (httpServer == null && configuration.httpEnabled) {
-            Timber.d("startHttp")
+        Timber.d("startHttp")
+        if (httpServer == null && configuration.httpMJPEGEnabled) {
             httpServer = AsyncHttpServer()
             httpServer!!.addAction("*", "*") { request, response ->
                 Timber.i("Unhandled Request Arrived")
@@ -398,7 +385,7 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
 
     private fun startMJPEG() {
         Timber.d("startMJPEG")
-        cameraReader.getJpeg().observe(this, Observer { jpeg ->
+        cameraModule?.getJpeg()?.observe(this, Observer { jpeg ->
             if (mJpegSockets.size > 0 && jpeg != null) {
                 var i = 0
                 while (i < mJpegSockets.size) {
@@ -425,7 +412,7 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
     private fun stopMJPEG() {
         Timber.d("stopMJPEG Called")
         mJpegSockets.clear()
-        cameraReader.getJpeg().removeObservers(this)
+        cameraModule?.getJpeg()?.removeObservers(this)
         if(httpServer != null) {
             httpServer!!.removeAction("GET", "/camera/stream")
         }
@@ -433,7 +420,7 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
 
     private fun startMJPEG(response: AsyncHttpServerResponse) {
         Timber.d("startmJpeg Called")
-        if (mJpegSockets.size < configuration.httpMJPEGMaxStreams) {
+        if (mJpegSockets.size <  100) {
             Timber.i("Starting new MJPEG stream")
             response.headers.add("Cache-Control", "no-cache")
             response.headers.add("Connection", "close")
@@ -580,7 +567,6 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
         }
     }
 
-    //@SuppressLint("WakelockTimeout")
     private fun switchScreenOn(wakeTime: Long) {
         Timber.d("switchScreenOn, waketime "+wakeTime)
         sendWakeScreen()
@@ -624,7 +610,7 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
             Timber.d("publishMotionDetected")
             val data = JSONObject()
             try {
-                data.put(MqttUtils.VALUE, true)
+                data.put(VALUE, true)
             } catch (ex: JSONException) {
                 ex.printStackTrace()
             }
@@ -712,15 +698,6 @@ class WallPanelService : LifecycleService(), MQTTModule.MQTTListener, MotionSens
     private val sensorCallback = object : SensorCallback {
         override fun publishSensorData(sensorName: String, sensorData: JSONObject) {
             publishMessage(COMMAND_SENSOR + sensorName, sensorData)
-        }
-    }
-
-    private val cameraDetectorCallback = object : CameraCallback {
-        override fun onDetectorError() {
-            sendToastMessage(getString(R.string.error_missing_vision_lib))
-        }
-        override fun onCameraError() {
-            sendToastMessage(getString(R.string.toast_camera_source_error))
         }
     }
 

@@ -121,7 +121,7 @@ abstract class BrowserActivity : DaggerAppCompatActivity() {
 
         decorView = window.decorView
 
-        if(configuration.cameraEnabled || configuration.hasCameraDetections() && Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1) {
+        if(configuration.cameraEnabled || configuration.hasCameraDetections()) {
             window.setFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED, WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED)
         }
         Timber.d("Prevent Sleep ${configuration.appPreventSleep}")

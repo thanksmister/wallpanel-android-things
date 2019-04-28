@@ -34,8 +34,7 @@ import javax.inject.Inject
  * Created by Michael Ritchie on 6/28/18.
  */
 class DetectionViewModel @Inject
-constructor(application: Application, private val configuration: Configuration,
-            private val cameraReader: CameraReader) : AndroidViewModel(application) {
+constructor(application: Application, private val configuration: Configuration, private val cameraReader: CameraReader) : AndroidViewModel(application) {
 
     private val cameras = MutableLiveData<ArrayList<String>>()
 
@@ -49,7 +48,6 @@ constructor(application: Application, private val configuration: Configuration,
 
     init {
         Timber.d("init")
-        getCameraList()
     }
 
     //prevents memory leaks by disposing pending observable objects
@@ -57,8 +55,7 @@ constructor(application: Application, private val configuration: Configuration,
         cameraReader.stopCamera()
     }
 
-    @Suppress("DEPRECATION")
-    private fun getCameraList() {
+    private fun getCameraList(): ArrayList<String>{
         val cameraList: ArrayList<String> = ArrayList()
         for (i in 0 until Camera.getNumberOfCameras()) {
             var description: String
@@ -85,16 +82,14 @@ constructor(application: Application, private val configuration: Configuration,
             }
             cameraList.add(description)
         }
-        setCameras(cameraList)
+        return cameraList
     }
 
     fun startCameraPreview(callback: CameraCallback, preview: CameraSourcePreview?) {
         Timber.d("startCameraPreview")
-        if (configuration.hasCameraDetections()) {
-            cameraReader.startCameraPreview(callback, configuration, preview)
-        } else if (configuration.cameraEnabled) {
-            cameraReader.startCameraPreviewSolo(callback, configuration, preview)
-        }
+        Timber.d("startCameraPreview ${getCameraList().toString()}")
+        val cameraList = getCameraList()
+        cameraReader.startCameraPreview(callback, configuration, preview, cameraList)
     }
 
     companion object {

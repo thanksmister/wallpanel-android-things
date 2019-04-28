@@ -51,7 +51,7 @@ class MQTTModule (base: Context?, var mqttOptions: MQTTOptions, private val list
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     private fun stop() {
-        Timber.d("stop")
+        Timber.d("onStop")
         if (mqttService != null) {
             try {
                 mqttService!!.close()

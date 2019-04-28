@@ -19,6 +19,7 @@ package com.thanksmister.things.wallpanel.persistence
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
+import com.google.android.gms.vision.CameraSource
 import com.google.android.things.device.TimeManager
 import com.thanksmister.things.wallpanel.R
 import com.thanksmister.things.wallpanel.utils.MqttUtils.Companion.COMMAND_SUN_ABOVE_HORIZON
@@ -70,8 +71,7 @@ constructor(private val context: Context, private val sharedPreferences: SharedP
         }
 
     var cameraId: Int
-        get() = getStringPref(R.string.key_setting_camera_cameraid,
-                R.string.default_setting_camera_cameraid).trim().toInt()
+        get() = sharedPreferences.getInt(context.getString(R.string.key_setting_camera_cameraid), CameraSource.CAMERA_FACING_BACK)
         set(value) {
             sharedPreferences.edit().putInt(context.getString(R.string.key_setting_camera_cameraid), value).apply()
         }

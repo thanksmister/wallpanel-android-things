@@ -14,46 +14,27 @@
   ~ limitations under the License.
   -->
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:keepScreenOn="true">
+    android:keepScreenOn="true"
+    android:orientation="vertical"
+    android:fillViewport="true">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <com.thanksmister.things.wallpanel.ui.views.CameraSourcePreview
-            android:id="@+id/imageView_preview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-    </LinearLayout>
-
-
-    <FrameLayout
-        android:id="@+id/statusBackground"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/white_alpha"
-        android:padding="16dp"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="24dp"
-        android:visibility="gone">
-
-        <TextView
-            style="@style/TextAppearance.Description"
-            android:id="@+id/statusTextView"
-            android:layout_width="match_parent"
+        <FrameLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            tools:text="Place your messages here"/>
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    </FrameLayout>
+            <TextureView
+                android:id="@+id/textureView"
+                android:layout_width="240dp"
+                android:layout_height="180dp"
+                android:layout_gravity="center"/>
 
-</FrameLayout>
+        </FrameLayout>
+
+</ScrollView>
