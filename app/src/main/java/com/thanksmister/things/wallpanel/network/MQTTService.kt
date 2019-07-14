@@ -171,33 +171,27 @@ class MQTTService(private var context: Context, options: MQTTOptions,
                 }
 
                 try {
-                    mqttClient!!.connect(options, null, object : IMqttActionListener {
-                        override fun onSuccess(asyncActionToken: IMqttToken) {
-                            val disconnectedBufferOptions = DisconnectedBufferOptions()
-                            disconnectedBufferOptions.isBufferEnabled = true
-                            disconnectedBufferOptions.bufferSize = 100
-                            disconnectedBufferOptions.isPersistBuffer = false
-                            disconnectedBufferOptions.isDeleteOldestMessages = false
-                            if (mqttClient != null) {
-                                try {
-                                    mqttClient!!.setBufferOpts(disconnectedBufferOptions)
-                                } catch (e: NullPointerException) {
-                                    Timber.e(e.message)
+                    mqttClient?.let {
+                        it.connect(options, null, object : IMqttActionListener {
+                            override fun onSuccess(asyncActionToken: IMqttToken) {
+                                val disconnectedBufferOptions = DisconnectedBufferOptions()
+                                disconnectedBufferOptions.isBufferEnabled = true
+                                disconnectedBufferOptions.bufferSize = 100
+                                disconnectedBufferOptions.isPersistBuffer = false
+                                disconnectedBufferOptions.isDeleteOldestMessages = false
+                                mqttClient?.setBufferOpts(disconnectedBufferOptions)
+                                listener?.handleMqttConnected()
+                            }
+                            override fun onFailure(asyncActionToken: IMqttToken, exception: Throwable) {
+                                mqttOptions.let {
+                                    Timber.e("Failed to connect to: " + it.brokerUrl + " exception: " + exception)
+                                    listener?.handleMqttException(context.getString(R.string.error_mqtt_subscription))
                                 }
                             }
-                            listener?.handleMqttConnected()
-                        }
-
-                        override fun onFailure(asyncActionToken: IMqttToken, exception: Throwable) {
-                            mqttOptions.let {
-                                Timber.e("Failed to connect to: " + it.brokerUrl + " exception: " + exception)
-                                listener?.handleMqttException(context.getString(R.string.error_mqtt_subscription))
-                            }
-                        }
-                    })
+                        })
+                    }
                 } catch (e: NullPointerException) {
                     Timber.e(e, e.message)
-                    e.printStackTrace()
                 } catch (e: MqttException) {
                     listener?.handleMqttException("" + e.message)
                 }
